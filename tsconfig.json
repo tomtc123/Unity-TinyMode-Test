@@ -2,7 +2,7 @@
     "compilerOptions": {
         "experimentalDecorators": true,
         "skipLibCheck": true,
-        "outFile": "F:/git/Unity-TinyMode-Test/TinyExport/FlyingYolk/html5/development/ScriptAssemblies/tsc-emit.js",
+        "outFile": "/Users/tomtang/Work/git/Unity-TinyMode-Test/TinyExport/FlyingYolk/html5/development/ScriptAssemblies/tsc-emit.js",
         "sourceMap": true,
         "target": "ES5"
     },
@@ -24,7 +24,8 @@
         "Library/PackageCache/com.unity.tiny@0.13.4-preview/Runtime/Modules/UTiny.RendererGL/**/*.ts",
         "Library/PackageCache/com.unity.tiny@0.13.4-preview/Runtime/Modules/UTiny.Sprite2D/**/*.ts",
         "Library/PackageCache/com.unity.tiny@0.13.4-preview/Runtime/Modules/UTiny.EditorExtensions/**/*.ts",
-        "Library/PackageCache/com.unity.tiny@0.13.4-preview/Runtime/Modules/UTiny.HitBox2D/**/*.ts"
+        "Library/PackageCache/com.unity.tiny@0.13.4-preview/Runtime/Modules/UTiny.HitBox2D/**/*.ts",
+        "Library/PackageCache/com.unity.tiny@0.13.4-preview/Runtime/Modules/UTiny.Tweens/**/*.ts"
     ],
     "exclude": [],
     "files": [

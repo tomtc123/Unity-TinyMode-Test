@@ -78,53 +78,6 @@ declare namespace ut {
 }
 declare var UT_ASSETS: Object;
 declare namespace game{
-    class Reskinnable extends ut.Component {
-        constructor();
-        theme: SkinType;
-        static readonly cid: number;
-        static readonly _view: any;
-        static readonly _isSharedComp: boolean;
-        static _size: number;
-        static _fromPtr(p: number, v?: Reskinnable): Reskinnable;
-        static _toPtr(p: number, v: Reskinnable): void;
-        static _tempHeapPtr(v: Reskinnable): number;
-        static _dtorFn(v: Reskinnable): void;
-    }
-    class Gravity extends ut.Component {
-        constructor();
-        gravity: ut.Math.Vector2;
-        static readonly cid: number;
-        static readonly _view: any;
-        static readonly _isSharedComp: boolean;
-        static _size: number;
-        static _fromPtr(p: number, v?: Gravity): Gravity;
-        static _toPtr(p: number, v: Gravity): void;
-        static _tempHeapPtr(v: Gravity): number;
-        static _dtorFn(v: Gravity): void;
-    }
-    class Ground extends ut.Component {
-        constructor();
-        static readonly cid: number;
-        static readonly _view: any;
-        static readonly _isSharedComp: boolean;
-        static _size: number;
-        static _fromPtr(p: number, v?: Ground): Ground;
-        static _toPtr(p: number, v: Ground): void;
-        static _tempHeapPtr(v: Ground): number;
-        static _dtorFn(v: Ground): void;
-    }
-    class PlayerInput extends ut.Component {
-        constructor();
-        force: number;
-        static readonly cid: number;
-        static readonly _view: any;
-        static readonly _isSharedComp: boolean;
-        static _size: number;
-        static _fromPtr(p: number, v?: PlayerInput): PlayerInput;
-        static _toPtr(p: number, v: PlayerInput): void;
-        static _tempHeapPtr(v: PlayerInput): number;
-        static _dtorFn(v: PlayerInput): void;
-    }
     class AutoDestroy extends ut.Component {
         constructor();
         threshold: number;
@@ -136,31 +89,6 @@ declare namespace game{
         static _toPtr(p: number, v: AutoDestroy): void;
         static _tempHeapPtr(v: AutoDestroy): number;
         static _dtorFn(v: AutoDestroy): void;
-    }
-    class SkinConfig extends ut.Component {
-        constructor();
-        theme: SkinType;
-        force: boolean;
-        static readonly cid: number;
-        static readonly _view: any;
-        static readonly _isSharedComp: boolean;
-        static _size: number;
-        static _fromPtr(p: number, v?: SkinConfig): SkinConfig;
-        static _toPtr(p: number, v: SkinConfig): void;
-        static _tempHeapPtr(v: SkinConfig): number;
-        static _dtorFn(v: SkinConfig): void;
-    }
-    class ScorePoint extends ut.Component {
-        constructor();
-        value: number;
-        static readonly cid: number;
-        static readonly _view: any;
-        static readonly _isSharedComp: boolean;
-        static _size: number;
-        static _fromPtr(p: number, v?: ScorePoint): ScorePoint;
-        static _toPtr(p: number, v: ScorePoint): void;
-        static _tempHeapPtr(v: ScorePoint): number;
-        static _dtorFn(v: ScorePoint): void;
     }
     class GameConfig extends ut.Component {
         constructor();
@@ -191,6 +119,29 @@ declare namespace game{
         static _tempHeapPtr(v: GameConfigTextValue): number;
         static _dtorFn(v: GameConfigTextValue): void;
     }
+    class Gravity extends ut.Component {
+        constructor();
+        gravity: ut.Math.Vector2;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: Gravity): Gravity;
+        static _toPtr(p: number, v: Gravity): void;
+        static _tempHeapPtr(v: Gravity): number;
+        static _dtorFn(v: Gravity): void;
+    }
+    class Ground extends ut.Component {
+        constructor();
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: Ground): Ground;
+        static _toPtr(p: number, v: Ground): void;
+        static _tempHeapPtr(v: Ground): number;
+        static _dtorFn(v: Ground): void;
+    }
     class NumberTextRenderer extends ut.Component {
         constructor();
         value: number;
@@ -207,6 +158,18 @@ declare namespace game{
         static _tempHeapPtr(v: NumberTextRenderer): number;
         static _dtorFn(v: NumberTextRenderer): void;
     }
+    class PlayerInput extends ut.Component {
+        constructor();
+        force: number;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: PlayerInput): PlayerInput;
+        static _toPtr(p: number, v: PlayerInput): void;
+        static _tempHeapPtr(v: PlayerInput): number;
+        static _dtorFn(v: PlayerInput): void;
+    }
     class RepeatingBackground extends ut.Component {
         constructor();
         threshold: number;
@@ -220,6 +183,30 @@ declare namespace game{
         static _tempHeapPtr(v: RepeatingBackground): number;
         static _dtorFn(v: RepeatingBackground): void;
     }
+    class Reskinnable extends ut.Component {
+        constructor();
+        theme: SkinType;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: Reskinnable): Reskinnable;
+        static _toPtr(p: number, v: Reskinnable): void;
+        static _tempHeapPtr(v: Reskinnable): number;
+        static _dtorFn(v: Reskinnable): void;
+    }
+    class ScorePoint extends ut.Component {
+        constructor();
+        value: number;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: ScorePoint): ScorePoint;
+        static _toPtr(p: number, v: ScorePoint): void;
+        static _tempHeapPtr(v: ScorePoint): number;
+        static _dtorFn(v: ScorePoint): void;
+    }
     class Scroller extends ut.Component {
         constructor();
         value: number;
@@ -231,6 +218,19 @@ declare namespace game{
         static _toPtr(p: number, v: Scroller): void;
         static _tempHeapPtr(v: Scroller): number;
         static _dtorFn(v: Scroller): void;
+    }
+    class SkinConfig extends ut.Component {
+        constructor();
+        theme: SkinType;
+        force: boolean;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: SkinConfig): SkinConfig;
+        static _toPtr(p: number, v: SkinConfig): void;
+        static _tempHeapPtr(v: SkinConfig): number;
+        static _dtorFn(v: SkinConfig): void;
     }
     class Spacing extends ut.Component {
         constructor();
@@ -265,6 +265,7 @@ declare namespace game{
     }
     class Velocity extends ut.Component {
         constructor();
+        velocity: ut.Math.Vector2;
         static readonly cid: number;
         static readonly _view: any;
         static readonly _isSharedComp: boolean;
@@ -274,16 +275,16 @@ declare namespace game{
         static _tempHeapPtr(v: Velocity): number;
         static _dtorFn(v: Velocity): void;
     }
-    enum SkinType {
-        Day = 0,
-        Night = 1,
-    }
     enum GameState {
         Initialize = 0,
         Menu = 1,
         Tutorial = 2,
         Play = 3,
         GameOver = 4,
+    }
+    enum SkinType {
+        Day = 0,
+        Night = 1,
     }
     enum TextAlignment {
         Center = 0,
@@ -349,6 +350,20 @@ declare namespace ut.EditorExtensions{
         static _tempHeapPtr(v: AssetReferenceSpriteAtlas): number;
         static _dtorFn(v: AssetReferenceSpriteAtlas): void;
     }
+    class AssetReferenceTMP_FontAsset extends ut.Component {
+        constructor();
+        guid: string;
+        fileId: number;
+        type: number;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: AssetReferenceTMP_FontAsset): AssetReferenceTMP_FontAsset;
+        static _toPtr(p: number, v: AssetReferenceTMP_FontAsset): void;
+        static _tempHeapPtr(v: AssetReferenceTMP_FontAsset): number;
+        static _dtorFn(v: AssetReferenceTMP_FontAsset): void;
+    }
     class AssetReferenceTexture2D extends ut.Component {
         constructor();
         guid: string;
@@ -376,20 +391,6 @@ declare namespace ut.EditorExtensions{
         static _toPtr(p: number, v: AssetReferenceTile): void;
         static _tempHeapPtr(v: AssetReferenceTile): number;
         static _dtorFn(v: AssetReferenceTile): void;
-    }
-    class AssetReferenceTMP_FontAsset extends ut.Component {
-        constructor();
-        guid: string;
-        fileId: number;
-        type: number;
-        static readonly cid: number;
-        static readonly _view: any;
-        static readonly _isSharedComp: boolean;
-        static _size: number;
-        static _fromPtr(p: number, v?: AssetReferenceTMP_FontAsset): AssetReferenceTMP_FontAsset;
-        static _toPtr(p: number, v: AssetReferenceTMP_FontAsset): void;
-        static _tempHeapPtr(v: AssetReferenceTMP_FontAsset): number;
-        static _dtorFn(v: AssetReferenceTMP_FontAsset): void;
     }
     class CameraCullingMask extends ut.Component {
         constructor();
@@ -427,8 +428,8 @@ declare namespace ut{
         game: {
             [data: string]: EntityGroupData;
             Bootstrap: EntityGroupData;
-            GameScene: EntityGroupData;
             GameOver: EntityGroupData;
+            GameScene: EntityGroupData;
             Pipes: EntityGroupData;
             Score: EntityGroupData;
             Tutorial: EntityGroupData;

@@ -1,46 +1,64 @@
 {
     "Success": true,
     "Diagnostics": [],
-    "Systems": [],
+    "Systems": [
+        {
+            "Name": "GameManagerSystem",
+            "QualifiedName": "game.GameManagerSystem",
+            "Description": "",
+            "Source": {
+                "File": "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/GameManagerSystem.ts",
+                "Line": 5,
+                "Character": 17
+            },
+            "ExecuteAfter": [
+                "ut.Shared.UserCodeStart"
+            ],
+            "ExecuteBefore": [
+                "ut.Shared.UserCodeEnd"
+            ]
+        }
+    ],
     "Filters": [],
     "Behaviours": [],
     "Performance": [
         {
             "Key": "tsconfig",
             "Description": "Time taken to read and parse the given tsconfig.json file",
-            "Duration": 80,
+            "Duration": 47,
             "Steps": 1
         },
         {
             "Key": "checksum",
             "Description": "Time taken to compute the MD5 of all inputs",
-            "Duration": 212,
+            "Duration": 194,
             "Steps": 1
         },
         {
             "Key": "compile",
             "Description": "Time taken to compile the TypeScript program",
-            "Duration": 855,
-            "Steps": 10
+            "Duration": 807,
+            "Steps": 11
         },
         {
             "Key": "emit",
             "Description": "Time taken to generate and write the JavaScript output",
-            "Duration": 42,
+            "Duration": 46,
             "Steps": 2
         },
         {
             "Key": "metadata",
             "Description": "Time taken to reflect Tiny metadata from the compiled program",
-            "Duration": 2,
-            "Steps": 0
+            "Duration": 4,
+            "Steps": 1
         }
     ],
     "SourceFiles": [
-        "F:/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/GameService.ts",
-        "F:/git/Unity-TinyMode-Test/Library/PackageCache/com.unity.tiny@0.13.4-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityGroup.ts",
-        "F:/git/Unity-TinyMode-Test/Library/PackageCache/com.unity.tiny@0.13.4-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityLookupCache.ts"
+        "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/GameManagerSystem.ts",
+        "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/GameService.ts",
+        "/Users/tomtang/Work/git/Unity-TinyMode-Test/Library/PackageCache/com.unity.tiny@0.13.4-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityGroup.ts",
+        "/Users/tomtang/Work/git/Unity-TinyMode-Test/Library/PackageCache/com.unity.tiny@0.13.4-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityLookupCache.ts"
     ],
-    "InputHash": "57017133a2f35df2654463b9d5c6c6ab",
-    "GeneratedAt": "Fri Jan 04 2019 13:37:29 GMT+0800 (中国标准时间)"
+    "InputHash": "4361949032fced78f23903e225be66e2",
+    "GeneratedAt": "Fri Jan 04 2019 20:59:21 GMT+0800 (CST)"
 }

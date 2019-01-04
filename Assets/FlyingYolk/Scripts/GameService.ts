@@ -30,7 +30,15 @@ namespace game {
         };
 
         static newGame(world: ut.World) {
+            this.clear(world);
+            ut.EntityGroup.instantiate(world, this.kGameSceneName);
 
+            let config = world.getConfigData(game.GameConfig);
+            config.currentScore = 0;
+            config.currentScrollSpeed = config.scrollSpeed;
+            config.state = game.GameState.Play;
+            world.setConfigData(config);
+            console.log("game start");
         };
 
         static startTutorial(world: ut.World) {
@@ -42,6 +50,48 @@ namespace game {
             world.usingComponentData(player, [game.Gravity], (gravity) => {
                 gravity.gravity = new ut.Math.Vector2();
             })
+            let transform = world.getComponentData(player, ut.Core2D.TransformLocalPosition);
+
+            ut.Tweens.TweenService.addTween(world,
+                player,
+                ut.Core2D.TransformLocalPosition.position.y,
+                transform.position.y, transform.position.y + .1,
+                0.4,
+                0,
+                ut.Core2D.LoopMode.PingPong,
+                ut.Tweens.TweenFunc.InOutQuad,
+                false);
+            let skinConfig = world.getConfigData(game.SkinConfig);
+            skinConfig.theme = game.SkinType.Day;
+            skinConfig.force = true;
+            world.setConfigData(skinConfig);
+
+            let gameConfig = world.getConfigData(game.GameConfig);
+            gameConfig.state = game.GameState.Tutorial;
+            world.setConfigData(gameConfig);
+
+            ut.EntityGroup.instantiate(world, this.kTutorialSceneName);
+
+            let eReady = world.getEntityByName("Image_GetReady");
+            ut.Tweens.TweenService.addTween(world,
+                eReady,
+                ut.Core2D.Sprite2DRenderer.color.a,
+                0, 1,
+                2.0,
+                0.0,
+                ut.Core2D.LoopMode.PingPong,
+                ut.Tweens.TweenFunc.OutQuad,
+                false);
+
+            ut.Tweens.TweenService.addTween(world,
+                world.getEntityByName("Image_Controls"),
+                ut.Core2D.Sprite2DRenderer.color.a,
+                0, 1,
+                2,
+                0,
+                ut.Core2D.LoopMode.PingPong,
+                ut.Tweens.TweenFunc.OutQuad,
+                false);
         };
 
         static endTutorial(world: ut.World) {

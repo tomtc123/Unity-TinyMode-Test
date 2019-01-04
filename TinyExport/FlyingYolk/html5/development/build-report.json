@@ -1,0 +1,143 @@
+﻿{
+    "Item": {
+        "Name": "Project",
+        "Size": 0,
+        "CompressedSize": 0
+    },
+    "Children": [{
+        "Item": {
+            "Name": "Runtime",
+            "Size": 0,
+            "CompressedSize": 0
+        },
+        "Children": [{
+            "Item": {
+                "Name": "TinyExport/FlyingYolk/html5/development/bin/runtime.js",
+                "Size": 5664364,
+                "CompressedSize": 700818
+            }
+        }]
+    }, {
+        "Item": {
+            "Name": "Assets",
+            "Size": 0,
+            "CompressedSize": 0
+        },
+        "Children": [{
+            "Item": {
+                "Name": "JavaScript",
+                "Size": 24997,
+                "CompressedSize": 0
+            }
+        }, {
+            "Item": {
+                "Name": "sactx-256x256-Uncompressed-Game-4f7b321e",
+                "Size": 0,
+                "CompressedSize": 0
+            },
+            "Children": [{
+                "Item": {
+                    "Name": "TinyExport/Assets/sactx-256x256-Uncompressed-Game-4f7b321e.png",
+                    "Size": 15504,
+                    "CompressedSize": 11672,
+                    "Object": { "$TypeId": 10, "Guid": "00000000000000000000000000000000", "FileId": 2, "Type": 0 }
+                }
+            }]
+        }, {
+            "Item": {
+                "Name": "sactx-256x256-DXT5-Day-b4832133",
+                "Size": 0,
+                "CompressedSize": 0
+            },
+            "Children": [{
+                "Item": {
+                    "Name": "TinyExport/Assets/sactx-256x256-DXT5-Day-b4832133.png",
+                    "Size": 37908,
+                    "CompressedSize": 28732,
+                    "Object": { "$TypeId": 10, "Guid": "00000000000000000000000000000000", "FileId": 2, "Type": 0 }
+                }
+            }]
+        }]
+    }, {
+        "Item": {
+            "Name": "Code",
+            "Size": 0,
+            "CompressedSize": 0
+        },
+        "Children": [{
+            "Item": {
+                "Name": "TinyExport/FlyingYolk/html5/development/bin/entities.js",
+                "Size": 27706,
+                "CompressedSize": 4024
+            },
+            "Children": [{
+                "Item": {
+                    "Name": "Bootstrap",
+                    "Size": 1076,
+                    "CompressedSize": 449
+                }
+            }, {
+                "Item": {
+                    "Name": "GameOver",
+                    "Size": 2776,
+                    "CompressedSize": 694
+                }
+            }, {
+                "Item": {
+                    "Name": "GameScene",
+                    "Size": 13379,
+                    "CompressedSize": 2425
+                }
+            }, {
+                "Item": {
+                    "Name": "Pipes",
+                    "Size": 5610,
+                    "CompressedSize": 1234
+                }
+            }, {
+                "Item": {
+                    "Name": "Score",
+                    "Size": 100,
+                    "CompressedSize": 96
+                }
+            }, {
+                "Item": {
+                    "Name": "Tutorial",
+                    "Size": 4692,
+                    "CompressedSize": 976
+                }
+            }]
+        }, {
+            "Item": {
+                "Name": "TinyExport/FlyingYolk/html5/development/bin/bindings.js",
+                "Size": 139398,
+                "CompressedSize": 12291
+            }
+        }, {
+            "Item": {
+                "Name": "Linked Code Files",
+                "Size": 0,
+                "CompressedSize": 0
+            },
+            "Children": [{
+                "Item": {
+                    "Name": "/Users/tomtang/Work/git/Unity-TinyMode-Test/TinyExport/FlyingYolk/html5/development/ScriptAssemblies/tsc-emit.js",
+                    "Size": 9452,
+                    "CompressedSize": 2366
+                }
+            }]
+        }, {
+            "Item": {
+                "Name": "TinyExport/FlyingYolk/html5/development/bin/main.js",
+                "Size": 2303,
+                "CompressedSize": 799
+            }
+        }, {
+            "Item": {
+                "Name": "TinyExport/FlyingYolk/html5/development/bin/wsclient.js",
+                "Size": 9651,
+                "CompressedSize": 2635
+            }
+        }]
+    }]
+}

@@ -6,8 +6,8 @@
     "SerializedVersion": 0,
     "Entities": [
         { "$TypeId": 9, "Id": "f1565c15e25c429d9201ddfaf5e79248", "Name": "UI_Tutorial" },
-        { "$TypeId": 9, "Id": "cfe0e553067544348fc5694df93f8c7c", "Name": "Sprite" },
-        { "$TypeId": 9, "Id": "5c651d6113a84641980a666170de324f", "Name": "Sprite1" },
+        { "$TypeId": 9, "Id": "cfe0e553067544348fc5694df93f8c7c", "Name": "Image_Controls" },
+        { "$TypeId": 9, "Id": "5c651d6113a84641980a666170de324f", "Name": "Image_GetReady" },
         { "$TypeId": 9, "Id": "b6bead463085444daa697729a10a0a0b", "Name": "Sprite2" }
     ]
 },
@@ -38,7 +38,7 @@
 {
     "$TypeId": 5,
     "Id": "cfe0e553067544348fc5694df93f8c7c",
-    "Name": "Sprite",
+    "Name": "Image_Controls",
     "Enabled": true,
     "Static": false,
     "Layer": 0,
@@ -63,7 +63,7 @@
 {
     "$TypeId": 5,
     "Id": "5c651d6113a84641980a666170de324f",
-    "Name": "Sprite1",
+    "Name": "Image_GetReady",
     "Enabled": true,
     "Static": false,
     "Layer": 0,

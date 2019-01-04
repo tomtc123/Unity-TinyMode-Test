@@ -1,3 +1,69 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var game;
+(function (game) {
+    var GameManagerSystem = /** @class */ (function (_super) {
+        __extends(GameManagerSystem, _super);
+        function GameManagerSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        GameManagerSystem.prototype.OnUpdate = function () {
+            var config = this.world.getConfigData(game.GameConfig);
+            switch (config.state) {
+                case game.GameState.Initialize:
+                    {
+                        game.GameService.initialize(this.world);
+                    }
+                    break;
+                case game.GameState.Menu:
+                    {
+                    }
+                    break;
+                case game.GameState.Tutorial:
+                    {
+                        if (ut.Runtime.Input.getMouseButtonDown(0)) {
+                            game.GameService.endTutorial(this.world);
+                        }
+                    }
+                    break;
+                case game.GameState.Play:
+                    {
+                    }
+                    break;
+                case game.GameState.GameOver:
+                    {
+                        if (ut.Runtime.Input.getMouseButtonDown(0)) {
+                            game.GameService.startTutorial(this.world);
+                        }
+                    }
+                    break;
+            }
+        };
+        GameManagerSystem = __decorate([
+            ut.executeAfter(ut.Shared.UserCodeStart),
+            ut.executeBefore(ut.Shared.UserCodeEnd)
+        ], GameManagerSystem);
+        return GameManagerSystem;
+    }(ut.ComponentSystem));
+    game.GameManagerSystem = GameManagerSystem;
+})(game || (game = {}));
 var game;
 (function (game) {
     /** New System */
@@ -20,6 +86,14 @@ var game;
         };
         ;
         GameService.newGame = function (world) {
+            this.clear(world);
+            ut.EntityGroup.instantiate(world, this.kGameSceneName);
+            var config = world.getConfigData(game.GameConfig);
+            config.currentScore = 0;
+            config.currentScrollSpeed = config.scrollSpeed;
+            config.state = game.GameState.Play;
+            world.setConfigData(config);
+            console.log("game start");
         };
         ;
         GameService.startTutorial = function (world) {
@@ -29,6 +103,19 @@ var game;
             world.usingComponentData(player, [game.Gravity], function (gravity) {
                 gravity.gravity = new ut.Math.Vector2();
             });
+            var transform = world.getComponentData(player, ut.Core2D.TransformLocalPosition);
+            ut.Tweens.TweenService.addTween(world, player, ut.Core2D.TransformLocalPosition.position.y, transform.position.y, transform.position.y + .1, 0.4, 0, ut.Core2D.LoopMode.PingPong, ut.Tweens.TweenFunc.InOutQuad, false);
+            var skinConfig = world.getConfigData(game.SkinConfig);
+            skinConfig.theme = game.SkinType.Day;
+            skinConfig.force = true;
+            world.setConfigData(skinConfig);
+            var gameConfig = world.getConfigData(game.GameConfig);
+            gameConfig.state = game.GameState.Tutorial;
+            world.setConfigData(gameConfig);
+            ut.EntityGroup.instantiate(world, this.kTutorialSceneName);
+            var eReady = world.getEntityByName("Image_GetReady");
+            ut.Tweens.TweenService.addTween(world, eReady, ut.Core2D.Sprite2DRenderer.color.a, 0, 1, 2.0, 0.0, ut.Core2D.LoopMode.PingPong, ut.Tweens.TweenFunc.OutQuad, false);
+            ut.Tweens.TweenService.addTween(world, world.getEntityByName("Image_Controls"), ut.Core2D.Sprite2DRenderer.color.a, 0, 1, 2, 0, ut.Core2D.LoopMode.PingPong, ut.Tweens.TweenFunc.OutQuad, false);
         };
         ;
         GameService.endTutorial = function (world) {
