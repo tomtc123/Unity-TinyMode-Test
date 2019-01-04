@@ -11,7 +11,7 @@
         "Name": "theme",
         "FieldType": { "Id": "fcfd83f3739a4f7c80930d22062b83a0", "Name": "SkinType" },
         "Array": false,
-        "Visibility": 0
+        "Visibility": 1
     }],
     "DefaultValue": {
         "Type": { "Id": "e043fd7d2ef442e1839b7bd1e1285417", "Name": "Reskinnable" }

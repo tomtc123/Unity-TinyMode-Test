@@ -9,7 +9,7 @@
     "Fields": [{
         "Id": "75f87825751d451998eedef05d706da6",
         "Name": "force",
-        "FieldType": { "Id": "9633c95a0a68473682f09ed6a01194b4", "Name": "Int32" },
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
         "Array": false,
         "Visibility": 0
     }],

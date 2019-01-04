@@ -3,5 +3,176 @@
     "Id": "8aada06ac0284eb79dbd8d0708ba51e0",
     "Name": "Pipes",
     "ExportFlags": 0,
-    "SerializedVersion": 0
+    "SerializedVersion": 0,
+    "Entities": [
+        { "$TypeId": 9, "Id": "42bc25e08141401ea44470f04da3d923", "Name": "Prefab_Pipes" },
+        { "$TypeId": 9, "Id": "77692b9270f44b3f9bd1b1f174e35829", "Name": "Pipes" },
+        { "$TypeId": 9, "Id": "7df2eaf052b84bc2a7badf6da1c0c743", "Name": "Pipe_Top" },
+        { "$TypeId": 9, "Id": "fe7a58e56c1d4b018f82f6115ce69182", "Name": "Pipe_Bottom" }
+    ]
+},
+{
+    "$TypeId": 5,
+    "Id": "42bc25e08141401ea44470f04da3d923",
+    "Name": "Prefab_Pipes",
+    "Enabled": true,
+    "Static": false,
+    "Layer": 0,
+    "Components": [{
+        "Type": { "Id": "c895dbe72eb46ecb10d589d320151758", "Name": "TransformNode" }
+    }, {
+        "Type": { "Id": "70449d66178e0d9f66795c24f0fbbdfc", "Name": "TransformLocalPosition" }
+    }, {
+        "Type": { "Id": "2266a95f5d16ca1ddde710d7c047ba69", "Name": "TransformLocalRotation" }
+    }, {
+        "Type": { "Id": "f11fe490eefc969bbc3fde5eab5ccd1e", "Name": "TransformLocalScale" }
+    }]
+},
+{
+    "$TypeId": 5,
+    "Id": "77692b9270f44b3f9bd1b1f174e35829",
+    "Name": "Pipes",
+    "Enabled": true,
+    "Static": false,
+    "Layer": 0,
+    "Components": [{
+        "Type": { "Id": "c895dbe72eb46ecb10d589d320151758", "Name": "TransformNode" },
+        "Properties": {
+            "parent": { "$TypeId": 9, "Id": "42bc25e08141401ea44470f04da3d923", "Name": "Prefab_Pipes" }
+        }
+    }, {
+        "Type": { "Id": "70449d66178e0d9f66795c24f0fbbdfc", "Name": "TransformLocalPosition" },
+        "Properties": {
+            "position": {
+                "Type": { "Id": "f139194553e8ae4a3250c5527d6de169", "Name": "Vector3" },
+                "Properties": {
+                    "z": 2
+                }
+            }
+        }
+    }, {
+        "Type": { "Id": "2266a95f5d16ca1ddde710d7c047ba69", "Name": "TransformLocalRotation" }
+    }, {
+        "Type": { "Id": "f11fe490eefc969bbc3fde5eab5ccd1e", "Name": "TransformLocalScale" }
+    }, {
+        "Type": { "Id": "288a861a8ca311346faecf4c20a2da76", "Name": "SortingGroup" }
+    }, {
+        "Type": { "Id": "b1e5348389156b7a260d6ed393754fba", "Name": "LayerSorting" },
+        "Properties": {
+            "order": 20
+        }
+    }, {
+        "Type": { "Id": "f34fc80375324d518d301fda130cd95b", "Name": "Spacing" },
+        "Properties": {
+            "top": { "$TypeId": 9, "Id": "7df2eaf052b84bc2a7badf6da1c0c743", "Name": "Sprite" },
+            "bottom": { "$TypeId": 9, "Id": "fe7a58e56c1d4b018f82f6115ce69182", "Name": "Sprite" },
+            "spacing": 2.5
+        }
+    }, {
+        "Type": { "Id": "d65ebb39fc744ff68e8f8fe735e6c7dc", "Name": "ScorePoint" },
+        "Properties": {
+            "value": 1
+        }
+    }, {
+        "Type": { "Id": "0d1b807c4d6a4a12acdbb3d8f384f03b", "Name": "AutoDestroy" },
+        "Properties": {
+            "threshold": -300
+        }
+    }]
+},
+{
+    "$TypeId": 5,
+    "Id": "7df2eaf052b84bc2a7badf6da1c0c743",
+    "Name": "Pipe_Top",
+    "Enabled": true,
+    "Static": false,
+    "Layer": 0,
+    "Components": [{
+        "Type": { "Id": "c895dbe72eb46ecb10d589d320151758", "Name": "TransformNode" },
+        "Properties": {
+            "parent": { "$TypeId": 9, "Id": "77692b9270f44b3f9bd1b1f174e35829", "Name": "Pipes" }
+        }
+    }, {
+        "Type": { "Id": "70449d66178e0d9f66795c24f0fbbdfc", "Name": "TransformLocalPosition" },
+        "Properties": {
+            "position": {
+                "Type": { "Id": "f139194553e8ae4a3250c5527d6de169", "Name": "Vector3" },
+                "Properties": {
+                    "y": 1
+                }
+            }
+        }
+    }, {
+        "Type": { "Id": "2266a95f5d16ca1ddde710d7c047ba69", "Name": "TransformLocalRotation" }
+    }, {
+        "Type": { "Id": "f11fe490eefc969bbc3fde5eab5ccd1e", "Name": "TransformLocalScale" }
+    }, {
+        "Type": { "Id": "1c504a8a7963db0d32e89b527b90e057", "Name": "Sprite2DRenderer" },
+        "Properties": {
+            "sprite": { "$TypeId": 10, "Guid": "1f5fe83ba337c904994be4e7a0233c9f", "FileId": 21300102, "Type": 3 }
+        }
+    }, {
+        "Type": { "Id": "a015bc52c7befa4d7484891d74d2b574", "Name": "RectHitBox2D" },
+        "Properties": {
+            "box": {
+                "Type": { "Id": "f216da154c4054842adb590807e977ba", "Name": "Rect" },
+                "Properties": {
+                    "x": -0.12,
+                    "y": -0.8,
+                    "width": 0.24,
+                    "height": 1.6
+                }
+            }
+        }
+    }, {
+        "Type": { "Id": "e043fd7d2ef442e1839b7bd1e1285417", "Name": "Reskinnable" }
+    }]
+},
+{
+    "$TypeId": 5,
+    "Id": "fe7a58e56c1d4b018f82f6115ce69182",
+    "Name": "Pipe_Bottom",
+    "Enabled": true,
+    "Static": false,
+    "Layer": 0,
+    "Components": [{
+        "Type": { "Id": "c895dbe72eb46ecb10d589d320151758", "Name": "TransformNode" },
+        "Properties": {
+            "parent": { "$TypeId": 9, "Id": "77692b9270f44b3f9bd1b1f174e35829", "Name": "Pipes" }
+        }
+    }, {
+        "Type": { "Id": "70449d66178e0d9f66795c24f0fbbdfc", "Name": "TransformLocalPosition" },
+        "Properties": {
+            "position": {
+                "Type": { "Id": "f139194553e8ae4a3250c5527d6de169", "Name": "Vector3" },
+                "Properties": {
+                    "y": -1
+                }
+            }
+        }
+    }, {
+        "Type": { "Id": "2266a95f5d16ca1ddde710d7c047ba69", "Name": "TransformLocalRotation" }
+    }, {
+        "Type": { "Id": "f11fe490eefc969bbc3fde5eab5ccd1e", "Name": "TransformLocalScale" }
+    }, {
+        "Type": { "Id": "1c504a8a7963db0d32e89b527b90e057", "Name": "Sprite2DRenderer" },
+        "Properties": {
+            "sprite": { "$TypeId": 10, "Guid": "1f5fe83ba337c904994be4e7a0233c9f", "FileId": 21300104, "Type": 3 }
+        }
+    }, {
+        "Type": { "Id": "a015bc52c7befa4d7484891d74d2b574", "Name": "RectHitBox2D" },
+        "Properties": {
+            "box": {
+                "Type": { "Id": "f216da154c4054842adb590807e977ba", "Name": "Rect" },
+                "Properties": {
+                    "x": -0.12,
+                    "y": -0.8,
+                    "width": 0.24,
+                    "height": 1.6
+                }
+            }
+        }
+    }, {
+        "Type": { "Id": "e043fd7d2ef442e1839b7bd1e1285417", "Name": "Reskinnable" }
+    }]
 }]
