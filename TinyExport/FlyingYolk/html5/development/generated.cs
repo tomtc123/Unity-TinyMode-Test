@@ -308,6 +308,12 @@ namespace game
 }
 namespace game
 {
+    public class GameOverSystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
     [UpdateBefore(typeof(UTiny.Shared.UserCodeEnd))]
     [UpdateAfter(typeof(UTiny.Shared.UserCodeStart))]
     public class GravitySystemJS : IComponentSystem
@@ -319,6 +325,21 @@ namespace game
     [UpdateBefore(typeof(UTiny.Shared.UserCodeEnd))]
     [UpdateAfter(typeof(UTiny.Shared.UserCodeStart))]
     public class PlayerInputSystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    [UpdateBefore(typeof(UTiny.Shared.UserCodeEnd))]
+    [UpdateAfter(typeof(UTiny.Shared.UserCodeStart))]
+    public class ScrollerSystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    [UpdateAfter(typeof(game.ScrollerSystemJS))]
+    public class RepeatingBackgroundSystemJS : IComponentSystem
     {
     }
 }

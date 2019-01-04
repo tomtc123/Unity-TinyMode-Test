@@ -206,6 +206,14 @@
                 }
             }
         }
+    }, {
+        "Type": { "Id": "4ef546476de7491e97ff8fede41fb1f6", "Name": "Scroller" }
+    }, {
+        "Type": { "Id": "76794400701f43e282a5bc198ec8b91f", "Name": "RepeatingBackground" },
+        "Properties": {
+            "threshold": -3.36,
+            "distance": 6.72
+        }
     }]
 },
 {
@@ -252,6 +260,14 @@
                     "height": 0.56
                 }
             }
+        }
+    }, {
+        "Type": { "Id": "4ef546476de7491e97ff8fede41fb1f6", "Name": "Scroller" }
+    }, {
+        "Type": { "Id": "76794400701f43e282a5bc198ec8b91f", "Name": "RepeatingBackground" },
+        "Properties": {
+            "threshold": -3.36,
+            "distance": 6.72
         }
     }]
 },
@@ -300,6 +316,14 @@
                 }
             }
         }
+    }, {
+        "Type": { "Id": "4ef546476de7491e97ff8fede41fb1f6", "Name": "Scroller" }
+    }, {
+        "Type": { "Id": "76794400701f43e282a5bc198ec8b91f", "Name": "RepeatingBackground" },
+        "Properties": {
+            "threshold": -3.36,
+            "distance": 6.72
+        }
     }]
 },
 {
@@ -346,6 +370,14 @@
                     "height": 0.56
                 }
             }
+        }
+    }, {
+        "Type": { "Id": "4ef546476de7491e97ff8fede41fb1f6", "Name": "Scroller" }
+    }, {
+        "Type": { "Id": "76794400701f43e282a5bc198ec8b91f", "Name": "RepeatingBackground" },
+        "Properties": {
+            "threshold": -3.36,
+            "distance": 6.72
         }
     }]
 },

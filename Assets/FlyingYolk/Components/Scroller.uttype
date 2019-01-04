@@ -11,7 +11,7 @@
         "Name": "value",
         "FieldType": { "Id": "9633c95a0a68473682f09ed6a01194b4", "Name": "Int32" },
         "Array": false,
-        "Visibility": 0
+        "Visibility": 1
     }],
     "DefaultValue": {
         "Type": { "Id": "4ef546476de7491e97ff8fede41fb1f6", "Name": "Scroller" },

@@ -2448,6 +2448,9 @@ game.GameManagerSystemJS = ut.System.define({
  ,updatesBefore: ["UTiny.Shared.UserCodeEnd"]
  ,updatesAfter: ["UTiny.Shared.UserCodeStart"]
 });
+game.GameOverSystemJS = ut.System.define({
+  name: "game.GameOverSystemJS"
+});
 game.GravitySystemJS = ut.System.define({
   name: "game.GravitySystemJS"
  ,updatesBefore: ["UTiny.Shared.UserCodeEnd"]
@@ -2457,6 +2460,15 @@ game.PlayerInputSystemJS = ut.System.define({
   name: "game.PlayerInputSystemJS"
  ,updatesBefore: ["UTiny.Shared.UserCodeEnd"]
  ,updatesAfter: ["UTiny.Shared.UserCodeStart"]
+});
+game.ScrollerSystemJS = ut.System.define({
+  name: "game.ScrollerSystemJS"
+ ,updatesBefore: ["UTiny.Shared.UserCodeEnd"]
+ ,updatesAfter: ["UTiny.Shared.UserCodeStart"]
+});
+game.RepeatingBackgroundSystemJS = ut.System.define({
+  name: "game.RepeatingBackgroundSystemJS"
+ ,updatesAfter: ["game.ScrollerSystemJS"]
 });
 game.VelocitySystemJS = ut.System.define({
   name: "game.VelocitySystemJS"

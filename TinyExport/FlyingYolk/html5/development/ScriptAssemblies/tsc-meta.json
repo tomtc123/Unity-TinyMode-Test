@@ -19,6 +19,16 @@
             ]
         },
         {
+            "Name": "GameOverSystem",
+            "QualifiedName": "game.GameOverSystem",
+            "Description": "",
+            "Source": {
+                "File": "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/GameOverSystem.ts",
+                "Line": 3,
+                "Character": 17
+            }
+        },
+        {
             "Name": "GravitySystem",
             "QualifiedName": "game.GravitySystem",
             "Description": "",
@@ -59,6 +69,43 @@
             ]
         },
         {
+            "Name": "ScrollerSystem",
+            "QualifiedName": "game.ScrollerSystem",
+            "Description": "",
+            "Source": {
+                "File": "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/ScrollerSystem.ts",
+                "Line": 6,
+                "Character": 17
+            },
+            "ExecuteAfter": [
+                "ut.Shared.UserCodeStart"
+            ],
+            "ExecuteBefore": [
+                "ut.Shared.UserCodeEnd"
+            ],
+            "RequiredComponents": [
+                "ut.Core2D.TransformLocalPosition",
+                "game.Scroller"
+            ]
+        },
+        {
+            "Name": "RepeatingBackgroundSystem",
+            "QualifiedName": "game.RepeatingBackgroundSystem",
+            "Description": "",
+            "Source": {
+                "File": "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/RepeatingBackgroundSystem.ts",
+                "Line": 7,
+                "Character": 17
+            },
+            "ExecuteAfter": [
+                "game.ScrollerSystem"
+            ],
+            "RequiredComponents": [
+                "ut.Core2D.TransformLocalPosition",
+                "game.RepeatingBackground"
+            ]
+        },
+        {
             "Name": "VelocitySystem",
             "QualifiedName": "game.VelocitySystem",
             "Description": "",
@@ -85,43 +132,46 @@
         {
             "Key": "tsconfig",
             "Description": "Time taken to read and parse the given tsconfig.json file",
-            "Duration": 54,
+            "Duration": 102,
             "Steps": 1
         },
         {
             "Key": "checksum",
             "Description": "Time taken to compute the MD5 of all inputs",
-            "Duration": 186,
+            "Duration": 323,
             "Steps": 1
         },
         {
             "Key": "compile",
             "Description": "Time taken to compile the TypeScript program",
-            "Duration": 834,
-            "Steps": 14
+            "Duration": 1574,
+            "Steps": 17
         },
         {
             "Key": "emit",
             "Description": "Time taken to generate and write the JavaScript output",
-            "Duration": 101,
+            "Duration": 287,
             "Steps": 2
         },
         {
             "Key": "metadata",
             "Description": "Time taken to reflect Tiny metadata from the compiled program",
-            "Duration": 7,
-            "Steps": 4
+            "Duration": 35,
+            "Steps": 7
         }
     ],
     "SourceFiles": [
         "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/GameManagerSystem.ts",
+        "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/GameOverSystem.ts",
         "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/GameService.ts",
         "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/GravitySystem.ts",
         "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/PlayerInputSystem.ts",
+        "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/ScrollerSystem.ts",
+        "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/RepeatingBackgroundSystem.ts",
         "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/VelocitySystem.ts",
         "/Users/tomtang/Work/git/Unity-TinyMode-Test/Library/PackageCache/com.unity.tiny@0.13.4-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityGroup.ts",
         "/Users/tomtang/Work/git/Unity-TinyMode-Test/Library/PackageCache/com.unity.tiny@0.13.4-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityLookupCache.ts"
     ],
-    "InputHash": "442ba3f6c926026a658252f8c9c6c1f1",
-    "GeneratedAt": "Fri Jan 04 2019 22:02:32 GMT+0800 (CST)"
+    "InputHash": "c132fba7be3744e23b547c4466be1f1f",
+    "GeneratedAt": "Fri Jan 04 2019 22:44:00 GMT+0800 (CST)"
 }

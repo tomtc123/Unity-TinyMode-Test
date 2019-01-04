@@ -620,6 +620,12 @@
 
 @system
 @memberof game
+@name GameOverSystemJS
+*/
+/**
+
+@system
+@memberof game
 @name GravitySystemJS
 */
 /**
@@ -627,6 +633,18 @@
 @system
 @memberof game
 @name PlayerInputSystemJS
+*/
+/**
+
+@system
+@memberof game
+@name ScrollerSystemJS
+*/
+/**
+
+@system
+@memberof game
+@name RepeatingBackgroundSystemJS
 */
 /**
 

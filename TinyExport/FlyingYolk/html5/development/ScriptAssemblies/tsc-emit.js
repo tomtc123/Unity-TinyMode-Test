@@ -66,6 +66,29 @@ var game;
 })(game || (game = {}));
 var game;
 (function (game) {
+    var GameOverSystem = /** @class */ (function (_super) {
+        __extends(GameOverSystem, _super);
+        function GameOverSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        GameOverSystem.prototype.OnUpdate = function () {
+            var _this = this;
+            var gameOver = false;
+            this.world.forEach([ut.Entity, game.PlayerInput, ut.HitBox2D.HitBoxOverlapResults, ut.Core2D.Sprite2DSequencePlayer], function (entity, input, overlap, sequencePlayer) {
+                _this.world.removeComponent(entity, game.PlayerInput);
+                sequencePlayer.paused = true;
+                gameOver = true;
+            });
+            if (gameOver) {
+                game.GameService.gameOver(this.world);
+            }
+        };
+        return GameOverSystem;
+    }(ut.ComponentSystem));
+    game.GameOverSystem = GameOverSystem;
+})(game || (game = {}));
+var game;
+(function (game) {
     /** New System */
     var GameService = /** @class */ (function () {
         function GameService() {
@@ -234,6 +257,55 @@ var game;
         return PlayerInputSystem;
     }(ut.ComponentSystem));
     game.PlayerInputSystem = PlayerInputSystem;
+})(game || (game = {}));
+var game;
+(function (game) {
+    var ScrollerSystem = /** @class */ (function (_super) {
+        __extends(ScrollerSystem, _super);
+        function ScrollerSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        ScrollerSystem.prototype.OnUpdate = function () {
+            var gameConfig = game.GameService.getGameConfig(this.world);
+            this.world.forEach([ut.Core2D.TransformLocalPosition, game.Scroller], function (transform, scroller) {
+                var p = transform.position;
+                p.x -= gameConfig.currentScrollSpeed;
+                transform.position = p;
+            });
+        };
+        ScrollerSystem = __decorate([
+            ut.executeAfter(ut.Shared.UserCodeStart),
+            ut.executeBefore(ut.Shared.UserCodeEnd),
+            ut.requiredComponents(ut.Core2D.TransformLocalPosition, game.Scroller)
+        ], ScrollerSystem);
+        return ScrollerSystem;
+    }(ut.ComponentSystem));
+    game.ScrollerSystem = ScrollerSystem;
+})(game || (game = {}));
+/// <reference path="ScrollerSystem.ts" />
+var game;
+(function (game) {
+    var RepeatingBackgroundSystem = /** @class */ (function (_super) {
+        __extends(RepeatingBackgroundSystem, _super);
+        function RepeatingBackgroundSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        RepeatingBackgroundSystem.prototype.OnUpdate = function () {
+            this.world.forEach([ut.Core2D.TransformLocalPosition, game.RepeatingBackground], function (transform, background) {
+                var p = transform.position;
+                if (p.x < background.threshold) {
+                    p.x += background.distance;
+                }
+                transform.position = p;
+            });
+        };
+        RepeatingBackgroundSystem = __decorate([
+            ut.executeAfter(game.ScrollerSystem),
+            ut.requiredComponents(ut.Core2D.TransformLocalPosition, game.RepeatingBackground)
+        ], RepeatingBackgroundSystem);
+        return RepeatingBackgroundSystem;
+    }(ut.ComponentSystem));
+    game.RepeatingBackgroundSystem = RepeatingBackgroundSystem;
 })(game || (game = {}));
 var game;
 (function (game) {
