@@ -3,6 +3,16 @@
     "Diagnostics": [],
     "Systems": [
         {
+            "Name": "AutoDestroySystem",
+            "QualifiedName": "game.AutoDestroySystem",
+            "Description": "",
+            "Source": {
+                "File": "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/AutoDestroySystem.ts",
+                "Line": 3,
+                "Character": 17
+            }
+        },
+        {
             "Name": "GameManagerSystem",
             "QualifiedName": "game.GameManagerSystem",
             "Description": "",
@@ -106,6 +116,48 @@
             ]
         },
         {
+            "Name": "PipeSpacingSystem",
+            "QualifiedName": "game.PipeSpacingSystem",
+            "Description": "",
+            "Source": {
+                "File": "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/SpacingSystem.ts",
+                "Line": 7,
+                "Character": 17
+            },
+            "ExecuteAfter": [
+                "ut.Shared.UserCodeStart"
+            ],
+            "ExecuteBefore": [
+                "ut.Shared.UserCodeEnd"
+            ],
+            "RequiredComponents": [
+                "game.Spacing"
+            ],
+            "OptionalComponents": [
+                "ut.Core2D.TransformLocalPosition"
+            ]
+        },
+        {
+            "Name": "SpawnerSystem",
+            "QualifiedName": "game.SpawnerSystem",
+            "Description": "",
+            "Source": {
+                "File": "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/SpawnerSystem.ts",
+                "Line": 9,
+                "Character": 17
+            },
+            "ExecuteAfter": [
+                "ut.Shared.UserCodeStart",
+                "game.RepeatingBackgroundSystem"
+            ],
+            "ExecuteBefore": [
+                "ut.Shared.UserCodeEnd"
+            ],
+            "RequiredComponents": [
+                "game.Spawner"
+            ]
+        },
+        {
             "Name": "VelocitySystem",
             "QualifiedName": "game.VelocitySystem",
             "Description": "",
@@ -132,35 +184,36 @@
         {
             "Key": "tsconfig",
             "Description": "Time taken to read and parse the given tsconfig.json file",
-            "Duration": 102,
+            "Duration": 75,
             "Steps": 1
         },
         {
             "Key": "checksum",
             "Description": "Time taken to compute the MD5 of all inputs",
-            "Duration": 323,
+            "Duration": 376,
             "Steps": 1
         },
         {
             "Key": "compile",
             "Description": "Time taken to compile the TypeScript program",
-            "Duration": 1574,
-            "Steps": 17
+            "Duration": 1660,
+            "Steps": 20
         },
         {
             "Key": "emit",
             "Description": "Time taken to generate and write the JavaScript output",
-            "Duration": 287,
+            "Duration": 196,
             "Steps": 2
         },
         {
             "Key": "metadata",
             "Description": "Time taken to reflect Tiny metadata from the compiled program",
-            "Duration": 35,
-            "Steps": 7
+            "Duration": 23,
+            "Steps": 10
         }
     ],
     "SourceFiles": [
+        "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/AutoDestroySystem.ts",
         "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/GameManagerSystem.ts",
         "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/GameOverSystem.ts",
         "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/GameService.ts",
@@ -168,10 +221,12 @@
         "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/PlayerInputSystem.ts",
         "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/ScrollerSystem.ts",
         "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/RepeatingBackgroundSystem.ts",
+        "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/SpacingSystem.ts",
+        "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/SpawnerSystem.ts",
         "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/VelocitySystem.ts",
         "/Users/tomtang/Work/git/Unity-TinyMode-Test/Library/PackageCache/com.unity.tiny@0.13.4-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityGroup.ts",
         "/Users/tomtang/Work/git/Unity-TinyMode-Test/Library/PackageCache/com.unity.tiny@0.13.4-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityLookupCache.ts"
     ],
-    "InputHash": "c132fba7be3744e23b547c4466be1f1f",
-    "GeneratedAt": "Fri Jan 04 2019 22:44:00 GMT+0800 (CST)"
+    "InputHash": "a1090deb2c7bc40b96b9f7d4c4515205",
+    "GeneratedAt": "Fri Jan 04 2019 23:23:19 GMT+0800 (CST)"
 }

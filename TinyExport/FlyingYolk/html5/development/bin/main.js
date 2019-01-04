@@ -28,13 +28,17 @@ ut.main = function() {
 
     // Schedule all systems
     var scheduler = world.scheduler();
+    game.AutoDestroySystemJS.update = new game.AutoDestroySystem()._MakeSystemFn();
     game.GameManagerSystemJS.update = new game.GameManagerSystem()._MakeSystemFn();
     game.GameOverSystemJS.update = new game.GameOverSystem()._MakeSystemFn();
     game.GravitySystemJS.update = new game.GravitySystem()._MakeSystemFn();
     game.PlayerInputSystemJS.update = new game.PlayerInputSystem()._MakeSystemFn();
     game.ScrollerSystemJS.update = new game.ScrollerSystem()._MakeSystemFn();
     game.RepeatingBackgroundSystemJS.update = new game.RepeatingBackgroundSystem()._MakeSystemFn();
+    game.PipeSpacingSystemJS.update = new game.PipeSpacingSystem()._MakeSystemFn();
+    game.SpawnerSystemJS.update = new game.SpawnerSystem()._MakeSystemFn();
     game.VelocitySystemJS.update = new game.VelocitySystem()._MakeSystemFn();
+    scheduler.schedule(game.AutoDestroySystemJS);
     scheduler.schedule(ut.HTML.InputHandler);
     scheduler.schedule(ut.HTML.AssetLoader);
     scheduler.schedule(ut.Core2D.SequencePlayerSystem);
@@ -47,6 +51,8 @@ ut.main = function() {
     scheduler.schedule(game.PlayerInputSystemJS);
     scheduler.schedule(game.ScrollerSystemJS);
     scheduler.schedule(game.RepeatingBackgroundSystemJS);
+    scheduler.schedule(game.PipeSpacingSystemJS);
+    scheduler.schedule(game.SpawnerSystemJS);
     scheduler.schedule(game.VelocitySystemJS);
     scheduler.schedule(ut.Shared.UserCodeEnd);
     scheduler.schedule(ut.Tweens.TweenSystem);

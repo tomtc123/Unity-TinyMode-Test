@@ -300,6 +300,12 @@ namespace ut.Profiler
 }
 namespace game
 {
+    public class AutoDestroySystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
     [UpdateBefore(typeof(UTiny.Shared.UserCodeEnd))]
     [UpdateAfter(typeof(UTiny.Shared.UserCodeStart))]
     public class GameManagerSystemJS : IComponentSystem
@@ -340,6 +346,23 @@ namespace game
 {
     [UpdateAfter(typeof(game.ScrollerSystemJS))]
     public class RepeatingBackgroundSystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    [UpdateBefore(typeof(UTiny.Shared.UserCodeEnd))]
+    [UpdateAfter(typeof(UTiny.Shared.UserCodeStart))]
+    public class PipeSpacingSystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    [UpdateBefore(typeof(UTiny.Shared.UserCodeEnd))]
+    [UpdateAfter(typeof(UTiny.Shared.UserCodeStart))]
+    [UpdateAfter(typeof(game.RepeatingBackgroundSystemJS))]
+    public class SpawnerSystemJS : IComponentSystem
     {
     }
 }

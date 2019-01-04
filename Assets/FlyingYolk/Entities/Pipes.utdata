@@ -5,7 +5,7 @@
     "ExportFlags": 0,
     "SerializedVersion": 0,
     "Entities": [
-        { "$TypeId": 9, "Id": "42bc25e08141401ea44470f04da3d923", "Name": "Prefab_Pipes" },
+        { "$TypeId": 9, "Id": "48c2ce46575b4a65b6401ab11c0b3a60", "Name": "Prefab_Pipes" },
         { "$TypeId": 9, "Id": "77692b9270f44b3f9bd1b1f174e35829", "Name": "Pipes" },
         { "$TypeId": 9, "Id": "7df2eaf052b84bc2a7badf6da1c0c743", "Name": "Pipe_Top" },
         { "$TypeId": 9, "Id": "fe7a58e56c1d4b018f82f6115ce69182", "Name": "Pipe_Bottom" }
@@ -13,7 +13,7 @@
 },
 {
     "$TypeId": 5,
-    "Id": "42bc25e08141401ea44470f04da3d923",
+    "Id": "48c2ce46575b4a65b6401ab11c0b3a60",
     "Name": "Prefab_Pipes",
     "Enabled": true,
     "Static": false,
@@ -38,7 +38,7 @@
     "Components": [{
         "Type": { "Id": "c895dbe72eb46ecb10d589d320151758", "Name": "TransformNode" },
         "Properties": {
-            "parent": { "$TypeId": 9, "Id": "42bc25e08141401ea44470f04da3d923", "Name": "Prefab_Pipes" }
+            "parent": { "$TypeId": 9, "Id": "48c2ce46575b4a65b6401ab11c0b3a60", "Name": "Sprite" }
         }
     }, {
         "Type": { "Id": "70449d66178e0d9f66795c24f0fbbdfc", "Name": "TransformLocalPosition" },
@@ -78,6 +78,8 @@
         "Properties": {
             "threshold": -300
         }
+    }, {
+        "Type": { "Id": "4ef546476de7491e97ff8fede41fb1f6", "Name": "Scroller" }
     }]
 },
 {

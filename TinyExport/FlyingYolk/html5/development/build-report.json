@@ -67,8 +67,8 @@
         "Children": [{
             "Item": {
                 "Name": "TinyExport/FlyingYolk/html5/development/bin/entities.js",
-                "Size": 28794,
-                "CompressedSize": 4202
+                "Size": 29005,
+                "CompressedSize": 4190
             },
             "Children": [{
                 "Item": {
@@ -85,14 +85,14 @@
             }, {
                 "Item": {
                     "Name": "GameScene",
-                    "Size": 14575,
-                    "CompressedSize": 2602
+                    "Size": 14680,
+                    "CompressedSize": 2600
                 }
             }, {
                 "Item": {
                     "Name": "Pipes",
-                    "Size": 5610,
-                    "CompressedSize": 1234
+                    "Size": 5716,
+                    "CompressedSize": 1246
                 }
             }, {
                 "Item": {
@@ -110,8 +110,8 @@
         }, {
             "Item": {
                 "Name": "TinyExport/FlyingYolk/html5/development/bin/bindings.js",
-                "Size": 140370,
-                "CompressedSize": 12390
+                "Size": 140838,
+                "CompressedSize": 12437
             }
         }, {
             "Item": {
@@ -122,15 +122,15 @@
             "Children": [{
                 "Item": {
                     "Name": "/Users/tomtang/Work/git/Unity-TinyMode-Test/TinyExport/FlyingYolk/html5/development/ScriptAssemblies/tsc-emit.js",
-                    "Size": 18679,
-                    "CompressedSize": 3456
+                    "Size": 23234,
+                    "CompressedSize": 4143
                 }
             }]
         }, {
             "Item": {
                 "Name": "TinyExport/FlyingYolk/html5/development/bin/main.js",
-                "Size": 3567,
-                "CompressedSize": 1023
+                "Size": 3957,
+                "CompressedSize": 1075
             }
         }, {
             "Item": {

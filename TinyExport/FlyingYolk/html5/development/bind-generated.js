@@ -2443,6 +2443,9 @@ ut.EditorExtensions.EntityLayer._typeDesc = (function() {
 Object.defineProperties(ut.EditorExtensions.EntityLayer, { cid: { configurable: true, get: function() { delete ut.EditorExtensions.EntityLayer.cid; var offsetsPtr = 0, offsetsCount = 0; return ut.EditorExtensions.EntityLayer.cid = Module._ut_component_register_cid_with_type(ut.EditorExtensions.EntityLayer._typeDesc, 4, 0, offsetsPtr, offsetsCount, 0, 0); } } });
 Object.defineProperties(ut.EditorExtensions.EntityLayer.StorageView, { cid: { configurable: true, get: function() { return ut.EditorExtensions.EntityLayer.cid; } } });
 ut.EditorExtensions.EntityLayer.layer = { $ofs:0, $t:"int32_t", $c:ut.EditorExtensions.EntityLayer };
+game.AutoDestroySystemJS = ut.System.define({
+  name: "game.AutoDestroySystemJS"
+});
 game.GameManagerSystemJS = ut.System.define({
   name: "game.GameManagerSystemJS"
  ,updatesBefore: ["UTiny.Shared.UserCodeEnd"]
@@ -2469,6 +2472,16 @@ game.ScrollerSystemJS = ut.System.define({
 game.RepeatingBackgroundSystemJS = ut.System.define({
   name: "game.RepeatingBackgroundSystemJS"
  ,updatesAfter: ["game.ScrollerSystemJS"]
+});
+game.PipeSpacingSystemJS = ut.System.define({
+  name: "game.PipeSpacingSystemJS"
+ ,updatesBefore: ["UTiny.Shared.UserCodeEnd"]
+ ,updatesAfter: ["UTiny.Shared.UserCodeStart"]
+});
+game.SpawnerSystemJS = ut.System.define({
+  name: "game.SpawnerSystemJS"
+ ,updatesBefore: ["UTiny.Shared.UserCodeEnd"]
+ ,updatesAfter: ["UTiny.Shared.UserCodeStart","game.RepeatingBackgroundSystemJS"]
 });
 game.VelocitySystemJS = ut.System.define({
   name: "game.VelocitySystemJS"

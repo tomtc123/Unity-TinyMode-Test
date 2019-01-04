@@ -19,6 +19,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var game;
 (function (game) {
+    var AutoDestroySystem = /** @class */ (function (_super) {
+        __extends(AutoDestroySystem, _super);
+        function AutoDestroySystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        AutoDestroySystem.prototype.OnUpdate = function () {
+            var _this = this;
+            this.world.forEach([ut.Entity, ut.Core2D.TransformLocalPosition, game.AutoDestroy], function (entity, transform, autodestroy) {
+                var p = transform.position;
+                if (p.x < autodestroy.threshold) {
+                    ut.Core2D.TransformService.destroyTree(_this.world, entity, true);
+                }
+            });
+        };
+        return AutoDestroySystem;
+    }(ut.ComponentSystem));
+    game.AutoDestroySystem = AutoDestroySystem;
+})(game || (game = {}));
+var game;
+(function (game) {
     var GameManagerSystem = /** @class */ (function (_super) {
         __extends(GameManagerSystem, _super);
         function GameManagerSystem() {
@@ -306,6 +326,82 @@ var game;
         return RepeatingBackgroundSystem;
     }(ut.ComponentSystem));
     game.RepeatingBackgroundSystem = RepeatingBackgroundSystem;
+})(game || (game = {}));
+var game;
+(function (game) {
+    var PipeSpacingSystem = /** @class */ (function (_super) {
+        __extends(PipeSpacingSystem, _super);
+        function PipeSpacingSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        PipeSpacingSystem.prototype.OnUpdate = function () {
+            var _this = this;
+            this.world.forEach([game.Spacing], function (spacing) {
+                // system responsible for setting the spacing between the pipes
+                // this can be manipulated when spawing the pipe, or by another system in real time to create moving pipes
+                var topPosition = _this.world.getComponentData(spacing.top, ut.Core2D.TransformLocalPosition);
+                var botPosition = _this.world.getComponentData(spacing.bottom, ut.Core2D.TransformLocalPosition);
+                topPosition.position = new Vector3(0, spacing.spacing * 0.5, 0);
+                botPosition.position = new Vector3(0, -spacing.spacing * 0.5, 0);
+                _this.world.setComponentData(spacing.top, topPosition);
+                _this.world.setComponentData(spacing.bottom, botPosition);
+            });
+        };
+        PipeSpacingSystem = __decorate([
+            ut.executeAfter(ut.Shared.UserCodeStart),
+            ut.executeBefore(ut.Shared.UserCodeEnd),
+            ut.requiredComponents(game.Spacing),
+            ut.optionalComponents(ut.Core2D.TransformLocalPosition)
+        ], PipeSpacingSystem);
+        return PipeSpacingSystem;
+    }(ut.ComponentSystem));
+    game.PipeSpacingSystem = PipeSpacingSystem;
+})(game || (game = {}));
+/// <reference path="RepeatingBackgroundSystem.ts" />
+var game;
+(function (game) {
+    var SpawnerSystem = /** @class */ (function (_super) {
+        __extends(SpawnerSystem, _super);
+        function SpawnerSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        SpawnerSystem.prototype.OnUpdate = function () {
+            var _this = this;
+            var pipesToSpawn = [];
+            this.world.forEach([game.Spawner], function (spawner) {
+                if (spawner.paused) {
+                    return;
+                }
+                var time = spawner.time;
+                var delay = spawner.delay;
+                time += _this.scheduler.deltaTime();
+                if (time > delay) {
+                    time -= delay;
+                    //@ts-ignore
+                    pipesToSpawn.push(game.Spawner._fromPtr(spawner._ptr));
+                }
+                spawner.time = time;
+            });
+            for (var i = 0; i < pipesToSpawn.length; ++i) {
+                var spawner = pipesToSpawn[i];
+                var instance = ut.EntityGroup.instantiate(this.world, 'game.Pipes')[0];
+                var pipe = ut.Core2D.TransformService.getChild(this.world, instance, 0);
+                var transform = new ut.Core2D.TransformLocalPosition(new Vector3(spawner.distance, (Math.random() * spawner.maxHeight) + spawner.minHeight, 0));
+                if (this.world.hasComponent(pipe, ut.Core2D.TransformLocalPosition))
+                    this.world.setComponentData(pipe, transform);
+                else
+                    this.world.addComponentData(pipe, transform);
+            }
+        };
+        SpawnerSystem = __decorate([
+            ut.executeAfter(ut.Shared.UserCodeStart),
+            ut.executeBefore(ut.Shared.UserCodeEnd),
+            ut.executeAfter(game.RepeatingBackgroundSystem),
+            ut.requiredComponents(game.Spawner)
+        ], SpawnerSystem);
+        return SpawnerSystem;
+    }(ut.ComponentSystem));
+    game.SpawnerSystem = SpawnerSystem;
 })(game || (game = {}));
 var game;
 (function (game) {

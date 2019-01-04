@@ -7,12 +7,12 @@
     "Entities": [
         { "$TypeId": 9, "Id": "a292c7f34a8e4b078ad88cd4f139b7bf", "Name": "Environment" },
         { "$TypeId": 9, "Id": "e6f9cd3cd6bf4064b21f9a9eb91d8836", "Name": "TopBounds" },
-        { "$TypeId": 9, "Id": "48c6f179a9464aa3980804beb8c17343", "Name": "Background" },
         { "$TypeId": 9, "Id": "db679e328c11478eac99d8b72defe4f0", "Name": "Ground" },
         { "$TypeId": 9, "Id": "a6e44ae6980243449735483ec8f8b55a", "Name": "Ground_0" },
         { "$TypeId": 9, "Id": "4f4249fd710b448388878f7d53600e7a", "Name": "Ground_1" },
         { "$TypeId": 9, "Id": "b8cb73dae69c4cd0ad5b85ba3e6d6339", "Name": "Ground_2" },
         { "$TypeId": 9, "Id": "9d202daba8e4420db79c300a782106e5", "Name": "Ground_3" },
+        { "$TypeId": 9, "Id": "48c6f179a9464aa3980804beb8c17343", "Name": "Background" },
         { "$TypeId": 9, "Id": "ed417b4c5f174ebba0fc49b800223243", "Name": "Player" },
         { "$TypeId": 9, "Id": "053e0a3635034e8b89958ab4197d7267", "Name": "Spawner" }
     ]
@@ -80,50 +80,6 @@
                 }
             }
         }
-    }]
-},
-{
-    "$TypeId": 5,
-    "Id": "48c6f179a9464aa3980804beb8c17343",
-    "Name": "Background",
-    "Enabled": true,
-    "Static": false,
-    "Layer": 0,
-    "Components": [{
-        "Type": { "Id": "c895dbe72eb46ecb10d589d320151758", "Name": "TransformNode" }
-    }, {
-        "Type": { "Id": "70449d66178e0d9f66795c24f0fbbdfc", "Name": "TransformLocalPosition" }
-    }, {
-        "Type": { "Id": "2266a95f5d16ca1ddde710d7c047ba69", "Name": "TransformLocalRotation" }
-    }, {
-        "Type": { "Id": "f11fe490eefc969bbc3fde5eab5ccd1e", "Name": "TransformLocalScale" }
-    }, {
-        "Type": { "Id": "1c504a8a7963db0d32e89b527b90e057", "Name": "Sprite2DRenderer" },
-        "Properties": {
-            "sprite": { "$TypeId": 10, "Guid": "1f5fe83ba337c904994be4e7a0233c9f", "FileId": 21300000, "Type": 3 }
-        }
-    }, {
-        "Type": { "Id": "be2f221c9af74ec5c0a4495a2d6769a3", "Name": "Sprite2DRendererOptions" },
-        "Properties": {
-            "size": {
-                "Type": { "Id": "3abb69286ddfc2d1c617a173c1eeb35d", "Name": "Vector2" },
-                "Properties": {
-                    "x": 10.24,
-                    "y": 2.56
-                }
-            },
-            "drawMode": {
-                "$TypeId": 8,
-                "Type": { "Id": "a7ae2ef1f120627af99607cbecca330e", "Name": "DrawMode" },
-                "Id": "0334e5a91225cf998b678224025cf40c",
-                "Name": "ContinuousTiling",
-                "Value": 0
-            }
-        }
-    }, {
-        "Type": { "Id": "b1e5348389156b7a260d6ed393754fba", "Name": "LayerSorting" }
-    }, {
-        "Type": { "Id": "e043fd7d2ef442e1839b7bd1e1285417", "Name": "Reskinnable" }
     }]
 },
 {
@@ -383,6 +339,50 @@
 },
 {
     "$TypeId": 5,
+    "Id": "48c6f179a9464aa3980804beb8c17343",
+    "Name": "Background",
+    "Enabled": true,
+    "Static": false,
+    "Layer": 0,
+    "Components": [{
+        "Type": { "Id": "c895dbe72eb46ecb10d589d320151758", "Name": "TransformNode" }
+    }, {
+        "Type": { "Id": "70449d66178e0d9f66795c24f0fbbdfc", "Name": "TransformLocalPosition" }
+    }, {
+        "Type": { "Id": "2266a95f5d16ca1ddde710d7c047ba69", "Name": "TransformLocalRotation" }
+    }, {
+        "Type": { "Id": "f11fe490eefc969bbc3fde5eab5ccd1e", "Name": "TransformLocalScale" }
+    }, {
+        "Type": { "Id": "1c504a8a7963db0d32e89b527b90e057", "Name": "Sprite2DRenderer" },
+        "Properties": {
+            "sprite": { "$TypeId": 10, "Guid": "1f5fe83ba337c904994be4e7a0233c9f", "FileId": 21300000, "Type": 3 }
+        }
+    }, {
+        "Type": { "Id": "be2f221c9af74ec5c0a4495a2d6769a3", "Name": "Sprite2DRendererOptions" },
+        "Properties": {
+            "size": {
+                "Type": { "Id": "3abb69286ddfc2d1c617a173c1eeb35d", "Name": "Vector2" },
+                "Properties": {
+                    "x": 10.24,
+                    "y": 2.56
+                }
+            },
+            "drawMode": {
+                "$TypeId": 8,
+                "Type": { "Id": "a7ae2ef1f120627af99607cbecca330e", "Name": "DrawMode" },
+                "Id": "0334e5a91225cf998b678224025cf40c",
+                "Name": "ContinuousTiling",
+                "Value": 0
+            }
+        }
+    }, {
+        "Type": { "Id": "b1e5348389156b7a260d6ed393754fba", "Name": "LayerSorting" }
+    }, {
+        "Type": { "Id": "e043fd7d2ef442e1839b7bd1e1285417", "Name": "Reskinnable" }
+    }]
+},
+{
+    "$TypeId": 5,
     "Id": "ed417b4c5f174ebba0fc49b800223243",
     "Name": "Player",
     "Enabled": true,
@@ -476,5 +476,7 @@
             "minHeight": -0.3,
             "maxHeight": 1.2
         }
+    }, {
+        "Type": { "Id": "c895dbe72eb46ecb10d589d320151758", "Name": "TransformNode" }
     }]
 }]

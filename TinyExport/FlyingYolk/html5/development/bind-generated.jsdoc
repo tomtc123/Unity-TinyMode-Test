@@ -614,6 +614,12 @@
 
 @system
 @memberof game
+@name AutoDestroySystemJS
+*/
+/**
+
+@system
+@memberof game
 @name GameManagerSystemJS
 */
 /**
@@ -645,6 +651,18 @@
 @system
 @memberof game
 @name RepeatingBackgroundSystemJS
+*/
+/**
+
+@system
+@memberof game
+@name PipeSpacingSystemJS
+*/
+/**
+
+@system
+@memberof game
+@name SpawnerSystemJS
 */
 /**
 
