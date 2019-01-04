@@ -73,6 +73,12 @@ var game;
         GameService.getPlayer = function (world) {
             return world.getEntityByName(this.kPlayerEntityName);
         };
+        GameService.getGameConfig = function (world) {
+            return world.getConfigData(game.GameConfig);
+        };
+        GameService.getGameState = function (world) {
+            return this.getGameConfig(world).state;
+        };
         GameService.clear = function (world) {
             ut.Tweens.TweenService.removeAllTweensInWorld(world);
             ut.EntityGroup.destroyAll(world, this.kGameSceneName);
@@ -107,7 +113,7 @@ var game;
             ut.Tweens.TweenService.addTween(world, player, ut.Core2D.TransformLocalPosition.position.y, transform.position.y, transform.position.y + .1, 0.4, 0, ut.Core2D.LoopMode.PingPong, ut.Tweens.TweenFunc.InOutQuad, false);
             var skinConfig = world.getConfigData(game.SkinConfig);
             skinConfig.theme = game.SkinType.Day;
-            skinConfig.force = true;
+            skinConfig.forced = true;
             world.setConfigData(skinConfig);
             var gameConfig = world.getConfigData(game.GameConfig);
             gameConfig.state = game.GameState.Tutorial;
@@ -119,9 +125,49 @@ var game;
         };
         ;
         GameService.endTutorial = function (world) {
+            ut.EntityGroup.destroyAll(world, this.kTutorialSceneName);
+            this.setSpawnerPaused(world, false);
+            var player = this.getPlayer(world);
+            var gameConfig = world.getConfigData(game.GameConfig);
+            world.usingComponentData(player, [game.Gravity], function (gravity) {
+                gravity.gravity = new ut.Math.Vector2(0, gameConfig.gravity);
+                console.log("gameConfig.gravity=" + gameConfig.gravity);
+            });
+            ut.Tweens.TweenService.removeAllTweensInWorld(world);
+            gameConfig.state = game.GameState.Play;
+            world.setConfigData(gameConfig);
+            ut.EntityGroup.instantiate(world, this.kScoreSceneName);
+        };
+        ;
+        GameService.gameOver = function (world) {
+            ut.EntityGroup.destroyAll(world, this.kScoreSceneName);
+            this.setSpawnerPaused(world, true);
+            var gameConfig = this.getGameConfig(world);
+            gameConfig.currentScrollSpeed = 0;
+            if (gameConfig.currentScore > gameConfig.highScore) {
+                gameConfig.highScore = gameConfig.currentScore;
+            }
+            gameConfig.state = game.GameState.GameOver;
+            world.setConfigData(gameConfig);
+            ut.EntityGroup.instantiate(world, this.kGameOverSceneName);
+            var eGameOver = world.getEntityByName("Image_GameOver");
+            var transform = world.getComponentData(eGameOver, ut.Core2D.TransformLocalPosition);
+            var end = transform.position;
+            var start = new Vector3(end.x, end.y + 1.0, end.z);
+            ut.Tweens.TweenService.addTween(world, eGameOver, ut.Core2D.TransformLocalPosition.position, start, end, 1.35, 0, ut.Core2D.LoopMode.Once, ut.Tweens.TweenFunc.OutBounce, true);
+            ut.Tweens.TweenService.addTween(world, eGameOver, ut.Core2D.Sprite2DRenderer.color.a, 0, 1, 0.45, 0, ut.Core2D.LoopMode.Once, ut.Tweens.TweenFunc.OutBounce, true);
+            var eBoard = world.getEntityByName("Image_ScoreBoard");
+            transform = world.getComponentData(eBoard, ut.Core2D.TransformLocalPosition);
+            end = transform.position;
+            start = new Vector3(end.x, end.y - 1.0, end.z);
+            ut.Tweens.TweenService.addTween(world, eBoard, ut.Core2D.TransformLocalPosition.position, start, end, 0.35, 0, ut.Core2D.LoopMode.Once, ut.Tweens.TweenFunc.OutQuad, true);
         };
         ;
         GameService.setSpawnerPaused = function (world, paused) {
+            var entity = world.getEntityByName(this.kSpawnerEntityName);
+            var spawner = world.getComponentData(entity, game.Spawner);
+            spawner.paused = paused;
+            world.setComponentData(entity, spawner);
         };
         ;
         GameService.kPlayerEntityName = 'Player';
@@ -134,6 +180,85 @@ var game;
         return GameService;
     }());
     game.GameService = GameService;
+})(game || (game = {}));
+var game;
+(function (game) {
+    var GravitySystem = /** @class */ (function (_super) {
+        __extends(GravitySystem, _super);
+        function GravitySystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        GravitySystem.prototype.OnUpdate = function () {
+            var dt = this.scheduler.deltaTime();
+            this.world.forEach([game.Gravity, game.Velocity], function (gravity, velocity) {
+                var v = velocity.velocity;
+                var g = gravity.gravity;
+                v.x += g.x * dt;
+                v.y += g.y * dt;
+                velocity.velocity = v;
+            });
+        };
+        GravitySystem = __decorate([
+            ut.executeAfter(ut.Shared.UserCodeStart),
+            ut.executeBefore(ut.Shared.UserCodeEnd),
+            ut.requiredComponents(game.Gravity, game.Velocity)
+        ], GravitySystem);
+        return GravitySystem;
+    }(ut.ComponentSystem));
+    game.GravitySystem = GravitySystem;
+})(game || (game = {}));
+var game;
+(function (game) {
+    var PlayerInputSystem = /** @class */ (function (_super) {
+        __extends(PlayerInputSystem, _super);
+        function PlayerInputSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        PlayerInputSystem.prototype.OnUpdate = function () {
+            if (game.GameService.getGameState(this.world) != game.GameState.Play) {
+                return;
+            }
+            if (!ut.Runtime.Input.getMouseButtonDown(0)) {
+                return;
+            }
+            //TODO: play audio
+            this.world.forEach([ut.Entity, game.PlayerInput, game.Velocity], function (entity, input, velocity) {
+                velocity.velocity = new ut.Math.Vector2(0, input.force);
+            });
+        };
+        PlayerInputSystem = __decorate([
+            ut.executeAfter(ut.Shared.UserCodeStart),
+            ut.executeBefore(ut.Shared.UserCodeEnd),
+            ut.requiredComponents(game.PlayerInput, game.Velocity)
+        ], PlayerInputSystem);
+        return PlayerInputSystem;
+    }(ut.ComponentSystem));
+    game.PlayerInputSystem = PlayerInputSystem;
+})(game || (game = {}));
+var game;
+(function (game) {
+    var VelocitySystem = /** @class */ (function (_super) {
+        __extends(VelocitySystem, _super);
+        function VelocitySystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        VelocitySystem.prototype.OnUpdate = function () {
+            this.world.forEach([ut.Core2D.TransformLocalPosition, game.Velocity], function (transform, velocity) {
+                var p = transform.position;
+                var v = velocity.velocity;
+                p.x += v.x;
+                p.y += v.y;
+                transform.position = p;
+            });
+        };
+        VelocitySystem = __decorate([
+            ut.executeAfter(ut.Shared.UserCodeStart),
+            ut.executeBefore(ut.Shared.UserCodeEnd),
+            ut.requiredComponents(game.PlayerInput, game.Velocity)
+        ], VelocitySystem);
+        return VelocitySystem;
+    }(ut.ComponentSystem));
+    game.VelocitySystem = VelocitySystem;
 })(game || (game = {}));
 var ut;
 (function (ut) {

@@ -1,49 +1,49 @@
 ﻿[{
     "$TypeId": 3,
-    "Id": "2bc07907dc3146798649c96896e542a1",
+    "Id": "618c8b4073994519b429729f88cf2df6",
     "Name": "GameConfig",
     "ExportFlags": 0,
     "Unlisted": false,
     "Visibility": 0,
-    "TypeCode": "Component",
+    "TypeCode": "Configuration",
     "Fields": [{
-        "Id": "aeeecbbdc44841c9993ae50d588aefbb",
+        "Id": "691513892f214501851e011a4e360526",
         "Name": "state",
         "FieldType": { "Id": "7206e703d2a94b0786972443184aeb92", "Name": "GameState" },
         "Array": false,
-        "Visibility": 0
+        "Visibility": 1
     }, {
-        "Id": "7f99724639004359954532e81f0dcbd9",
+        "Id": "f9807a6cdb97434eb97f3a5c2310218f",
         "Name": "scrollSpeed",
         "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
         "Array": false,
         "Visibility": 0
     }, {
-        "Id": "d2d89eecfd314b4c9eb1e35087b5c1ca",
+        "Id": "d93834b5065145b1b9c78de69ef10d97",
         "Name": "gravity",
-        "FieldType": { "Id": "9633c95a0a68473682f09ed6a01194b4", "Name": "Int32" },
-        "Array": false,
-        "Visibility": 0
-    }, {
-        "Id": "a666cbf0be1f47059d2aea221f15a576",
-        "Name": "currentScore",
-        "FieldType": { "Id": "9633c95a0a68473682f09ed6a01194b4", "Name": "Int32" },
-        "Array": false,
-        "Visibility": 0
-    }, {
-        "Id": "9b886b7baea44b6a875d666305492f21",
-        "Name": "highScore",
-        "FieldType": { "Id": "9633c95a0a68473682f09ed6a01194b4", "Name": "Int32" },
-        "Array": false,
-        "Visibility": 0
-    }, {
-        "Id": "023b7ea230db451682568f358d21c4d9",
-        "Name": "currentScrollSpeed",
         "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
         "Array": false,
         "Visibility": 0
+    }, {
+        "Id": "17ce80f66bc6451690539eb253380a92",
+        "Name": "currentScore",
+        "FieldType": { "Id": "9633c95a0a68473682f09ed6a01194b4", "Name": "Int32" },
+        "Array": false,
+        "Visibility": 1
+    }, {
+        "Id": "8469bbfce91f4eed8150021dd2e55c8b",
+        "Name": "highScore",
+        "FieldType": { "Id": "9633c95a0a68473682f09ed6a01194b4", "Name": "Int32" },
+        "Array": false,
+        "Visibility": 1
+    }, {
+        "Id": "1eab2673f8234610a2c746079d3cfde0",
+        "Name": "currentScrollSpeed",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 1
     }],
     "DefaultValue": {
-        "Type": { "Id": "2bc07907dc3146798649c96896e542a1", "Name": "GameConfig" }
+        "Type": { "Id": "618c8b4073994519b429729f88cf2df6", "Name": "GameConfig" }
     }
 }]

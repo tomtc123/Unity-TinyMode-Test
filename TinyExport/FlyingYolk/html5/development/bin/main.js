@@ -20,6 +20,8 @@ ut.importModule(ut.Rendering);
 ut.importModule(ut.Core2D);
 ut.importModule(ut.HitBox2D);
 ut.importModule(ut.Tweens);
+ut.importModule(ut.Audio);
+ut.importModule(ut.Profiler);
 ut.main = function() {
     // Singleton world
     var world = new ut.World();
@@ -27,6 +29,9 @@ ut.main = function() {
     // Schedule all systems
     var scheduler = world.scheduler();
     game.GameManagerSystemJS.update = new game.GameManagerSystem()._MakeSystemFn();
+    game.GravitySystemJS.update = new game.GravitySystem()._MakeSystemFn();
+    game.PlayerInputSystemJS.update = new game.PlayerInputSystem()._MakeSystemFn();
+    game.VelocitySystemJS.update = new game.VelocitySystem()._MakeSystemFn();
     scheduler.schedule(ut.HTML.InputHandler);
     scheduler.schedule(ut.HTML.AssetLoader);
     scheduler.schedule(ut.Core2D.SequencePlayerSystem);
@@ -34,6 +39,9 @@ ut.main = function() {
     scheduler.schedule(ut.Shared.InputFence);
     scheduler.schedule(ut.Shared.UserCodeStart);
     scheduler.schedule(game.GameManagerSystemJS);
+    scheduler.schedule(game.GravitySystemJS);
+    scheduler.schedule(game.PlayerInputSystemJS);
+    scheduler.schedule(game.VelocitySystemJS);
     scheduler.schedule(ut.Shared.UserCodeEnd);
     scheduler.schedule(ut.Tweens.TweenSystem);
     scheduler.schedule(ut.Shared.RenderingFence);
@@ -44,6 +52,7 @@ ut.main = function() {
     scheduler.schedule(ut.Shared.PlatformRenderingFence);
     scheduler.schedule(ut.Rendering.RendererCanvas);
     scheduler.schedule(ut.Rendering.RendererGLWebGL);
+    scheduler.schedule(ut.Audio.AudioSystem);
 
     // Initialize all configuration data
     var c0 = world.getConfigData(ut.Core2D.DisplayInfo);
@@ -52,6 +61,16 @@ ut.main = function() {
     c0.autoSizeToFrame = true;
     c0.renderMode = 0;
     world.setConfigData(c0);
+    var c1 = world.getConfigData(ut.Audio.AudioConfig);
+    world.setConfigData(c1);
+    var c2 = world.getConfigData(game.GameConfig);
+    c2.state = 0;
+    c2.scrollSpeed = 0.01;
+    c2.gravity = -0.07;
+    world.setConfigData(c2);
+    var c3 = world.getConfigData(game.SkinConfig);
+    c3.theme = 0;
+    world.setConfigData(c3);
 
     // Create and initialize all resource entities
     UT_ASSETS_SETUP(world);
@@ -65,4 +84,6 @@ ut.main = function() {
 
     // Start the player loop
     try { ut.Runtime.Service.run(world); } catch (e) { if (e !== 'SimulateInfiniteLoop') throw e; }
+
+    ut.Profiler.startProfiling(world);
 }

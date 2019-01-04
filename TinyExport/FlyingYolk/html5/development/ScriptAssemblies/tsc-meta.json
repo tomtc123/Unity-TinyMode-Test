@@ -17,6 +17,66 @@
             "ExecuteBefore": [
                 "ut.Shared.UserCodeEnd"
             ]
+        },
+        {
+            "Name": "GravitySystem",
+            "QualifiedName": "game.GravitySystem",
+            "Description": "",
+            "Source": {
+                "File": "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/GravitySystem.ts",
+                "Line": 6,
+                "Character": 17
+            },
+            "ExecuteAfter": [
+                "ut.Shared.UserCodeStart"
+            ],
+            "ExecuteBefore": [
+                "ut.Shared.UserCodeEnd"
+            ],
+            "RequiredComponents": [
+                "game.Gravity",
+                "game.Velocity"
+            ]
+        },
+        {
+            "Name": "PlayerInputSystem",
+            "QualifiedName": "game.PlayerInputSystem",
+            "Description": "",
+            "Source": {
+                "File": "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/PlayerInputSystem.ts",
+                "Line": 6,
+                "Character": 17
+            },
+            "ExecuteAfter": [
+                "ut.Shared.UserCodeStart"
+            ],
+            "ExecuteBefore": [
+                "ut.Shared.UserCodeEnd"
+            ],
+            "RequiredComponents": [
+                "game.PlayerInput",
+                "game.Velocity"
+            ]
+        },
+        {
+            "Name": "VelocitySystem",
+            "QualifiedName": "game.VelocitySystem",
+            "Description": "",
+            "Source": {
+                "File": "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/VelocitySystem.ts",
+                "Line": 5,
+                "Character": 17
+            },
+            "ExecuteAfter": [
+                "ut.Shared.UserCodeStart"
+            ],
+            "ExecuteBefore": [
+                "ut.Shared.UserCodeEnd"
+            ],
+            "RequiredComponents": [
+                "game.PlayerInput",
+                "game.Velocity"
+            ]
         }
     ],
     "Filters": [],
@@ -25,40 +85,43 @@
         {
             "Key": "tsconfig",
             "Description": "Time taken to read and parse the given tsconfig.json file",
-            "Duration": 47,
+            "Duration": 54,
             "Steps": 1
         },
         {
             "Key": "checksum",
             "Description": "Time taken to compute the MD5 of all inputs",
-            "Duration": 194,
+            "Duration": 186,
             "Steps": 1
         },
         {
             "Key": "compile",
             "Description": "Time taken to compile the TypeScript program",
-            "Duration": 807,
-            "Steps": 11
+            "Duration": 834,
+            "Steps": 14
         },
         {
             "Key": "emit",
             "Description": "Time taken to generate and write the JavaScript output",
-            "Duration": 46,
+            "Duration": 101,
             "Steps": 2
         },
         {
             "Key": "metadata",
             "Description": "Time taken to reflect Tiny metadata from the compiled program",
-            "Duration": 4,
-            "Steps": 1
+            "Duration": 7,
+            "Steps": 4
         }
     ],
     "SourceFiles": [
         "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/GameManagerSystem.ts",
         "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/GameService.ts",
+        "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/GravitySystem.ts",
+        "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/PlayerInputSystem.ts",
+        "/Users/tomtang/Work/git/Unity-TinyMode-Test/Assets/FlyingYolk/Scripts/VelocitySystem.ts",
         "/Users/tomtang/Work/git/Unity-TinyMode-Test/Library/PackageCache/com.unity.tiny@0.13.4-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityGroup.ts",
         "/Users/tomtang/Work/git/Unity-TinyMode-Test/Library/PackageCache/com.unity.tiny@0.13.4-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityLookupCache.ts"
     ],
-    "InputHash": "4361949032fced78f23903e225be66e2",
-    "GeneratedAt": "Fri Jan 04 2019 20:59:21 GMT+0800 (CST)"
+    "InputHash": "442ba3f6c926026a658252f8c9c6c1f1",
+    "GeneratedAt": "Fri Jan 04 2019 22:02:32 GMT+0800 (CST)"
 }

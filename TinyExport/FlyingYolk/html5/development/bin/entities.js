@@ -38,16 +38,15 @@ entities.game.GameOver.name = "GameOver";
 entities.game.GameOver.load = function(world) {
     var arch0 = world.createArchetype(this.Component, ut.Core2D.LayerSorting, ut.Core2D.Sprite2DRenderer, ut.Core2D.TransformLocalPosition, ut.Core2D.TransformLocalRotation, ut.Core2D.TransformLocalScale, ut.Core2D.TransformNode, ut.layers.Default)
     var e0 = world.createEntity(arch0);
-    world.setEntityName(e0, "Sprite");
-    var arch1 = world.createArchetype(this.Component, ut.Core2D.Sprite2DRenderer, ut.Core2D.TransformLocalPosition, ut.Core2D.TransformLocalRotation, ut.Core2D.TransformLocalScale, ut.Core2D.TransformNode, ut.layers.Default)
-    var e1 = world.createEntity(arch1);
-    world.setEntityName(e1, "Sprite1");
+    world.setEntityName(e0, "Image_GameOver");
+    var e1 = world.createEntity(arch0);
+    world.setEntityName(e1, "Image_ScoreBoard");
     var c0 = new ut.Core2D.TransformNode();
     world.setComponentData(e0, c0);
     var c1 = new ut.Core2D.TransformLocalPosition();
     var s0 = new ut.Math.Vector3();
     s0.x = 0;
-    s0.y = 0.46;
+    s0.y = 0.5;
     s0.z = 0;
     c1.position = s0;
     world.setComponentData(e0, c1);
@@ -113,6 +112,9 @@ entities.game.GameOver.load = function(world) {
     c10.color = s7;
     c10.blending = 0;
     world.setComponentData(e1, c10);
+    var c11 = new ut.Core2D.LayerSorting();
+    c11.order = 40;
+    world.setComponentData(e1, c11);
     return [e0, e1];
 }
 

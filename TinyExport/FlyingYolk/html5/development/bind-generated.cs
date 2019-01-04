@@ -114,24 +114,6 @@ namespace game
 namespace game
 {
     [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
-    public struct GameConfig : UTiny.IComponentData
-    {
-
-
-        public game.GameState state;
-        public float scrollSpeed;
-        public int gravity;
-        public int currentScore;
-        public int highScore;
-        public float currentScrollSpeed;
-
-
-
-    }
-}
-namespace game
-{
-    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
     public struct GameConfigTextValue : UTiny.IComponentData
     {
 
@@ -253,20 +235,6 @@ namespace game
 namespace game
 {
     [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
-    public struct SkinConfig : UTiny.IComponentData
-    {
-
-
-        public game.SkinType theme;
-        public bool force;
-
-
-
-    }
-}
-namespace game
-{
-    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
     public struct Spacing : UTiny.IComponentData
     {
 
@@ -305,6 +273,38 @@ namespace game
 
 
         public Unity.Mathematics.float2 velocity;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct GameConfig : UTiny.IComponentData
+    {
+
+
+        public game.GameState state;
+        public float scrollSpeed;
+        public float gravity;
+        public int currentScore;
+        public int highScore;
+        public float currentScrollSpeed;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct SkinConfig : UTiny.IComponentData
+    {
+
+
+        public game.SkinType theme;
+        public bool forced;
 
 
 

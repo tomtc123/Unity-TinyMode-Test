@@ -25,7 +25,9 @@
         "Library/PackageCache/com.unity.tiny@0.13.4-preview/Runtime/Modules/UTiny.Sprite2D/**/*.ts",
         "Library/PackageCache/com.unity.tiny@0.13.4-preview/Runtime/Modules/UTiny.EditorExtensions/**/*.ts",
         "Library/PackageCache/com.unity.tiny@0.13.4-preview/Runtime/Modules/UTiny.HitBox2D/**/*.ts",
-        "Library/PackageCache/com.unity.tiny@0.13.4-preview/Runtime/Modules/UTiny.Tweens/**/*.ts"
+        "Library/PackageCache/com.unity.tiny@0.13.4-preview/Runtime/Modules/UTiny.Tweens/**/*.ts",
+        "Library/PackageCache/com.unity.tiny@0.13.4-preview/Runtime/Modules/UTiny.Audio/**/*.ts",
+        "Library/PackageCache/com.unity.tiny@0.13.4-preview/Runtime/Modules/UTiny.Profiler/**/*.ts"
     ],
     "exclude": [],
     "files": [

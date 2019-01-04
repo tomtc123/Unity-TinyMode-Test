@@ -60,7 +60,9 @@
         { "Id": "ce3f1bd7050540b70d450a606e226ea2", "Name": "UTiny.Shared" },
         { "Id": "36f73ad23c8a63c53fa510f0621474f5", "Name": "UTiny.HitBox2D" },
         { "Id": "c1fdb14eff384ac8a8d92b60648315ec", "Name": "Main" },
-        { "Id": "77778da25aeb380ab7e46deb6d495cdc", "Name": "UTiny.Tweens" }
+        { "Id": "77778da25aeb380ab7e46deb6d495cdc", "Name": "UTiny.Tweens" },
+        { "Id": "251df5ef6819533f94e1cbf3181f722e", "Name": "UTiny.Audio" },
+        { "Id": "e9e23e98356b11d6bb24a038d0236b01", "Name": "UTiny.Profiler" }
     ],
     "StartupEntityGroup": { "Id": "3741818578514fe8a98fb23a8ac92234", "Name": "NewEntityGroup" }
 },
@@ -78,5 +80,15 @@
             "height": 1080,
             "autoSizeToFrame": true
         }
+    }, {
+        "Type": { "Id": "e816e7b93a13b9e5ddf993486ca79278", "Name": "AudioConfig" }
+    }, {
+        "Type": { "Id": "618c8b4073994519b429729f88cf2df6", "Name": "GameConfig" },
+        "Properties": {
+            "scrollSpeed": 0.01,
+            "gravity": -0.07
+        }
+    }, {
+        "Type": { "Id": "b7907fce40ce448eb105a0717a9e001e", "Name": "SkinConfig" }
     }]
 }]

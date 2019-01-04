@@ -8,6 +8,8 @@ using UTiny.Rendering;
 using ut.EditorExtensions;
 using UTiny.HitBox2D;
 using UTiny.Tweens;
+using UTiny.Audio;
+using UTiny.Profiler;
 
 /*
  * !!! TEMP UNITL PROPER SCENE FORMAT !!!
@@ -58,15 +60,6 @@ namespace game
     {
         public float threshold;
     }
-    public struct GameConfig : IComponentData
-    {
-        public game.GameState state;
-        public float scrollSpeed;
-        public int gravity;
-        public int currentScore;
-        public int highScore;
-        public float currentScrollSpeed;
-    }
     public struct GameConfigTextValue : IComponentData
     {
         public string key;
@@ -107,11 +100,6 @@ namespace game
     {
         public int value;
     }
-    public struct SkinConfig : IComponentData
-    {
-        public game.SkinType theme;
-        public bool force;
-    }
     public struct Spacing : IComponentData
     {
         public Entity top;
@@ -148,6 +136,22 @@ namespace game
     {
         Center = 0
         , Right = 1
+    }
+    [Configuration]
+    public struct GameConfig : IComponentData
+    {
+        public game.GameState state;
+        public float scrollSpeed;
+        public float gravity;
+        public int currentScore;
+        public int highScore;
+        public float currentScrollSpeed;
+    }
+    [Configuration]
+    public struct SkinConfig : IComponentData
+    {
+        public game.SkinType theme;
+        public bool forced;
     }
 }
 
@@ -286,11 +290,43 @@ namespace ut.HitBox2D
 namespace ut.Tweens
 {
 }
+
+namespace ut.Audio
+{
+}
+
+namespace ut.Profiler
+{
+}
 namespace game
 {
     [UpdateBefore(typeof(UTiny.Shared.UserCodeEnd))]
     [UpdateAfter(typeof(UTiny.Shared.UserCodeStart))]
     public class GameManagerSystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    [UpdateBefore(typeof(UTiny.Shared.UserCodeEnd))]
+    [UpdateAfter(typeof(UTiny.Shared.UserCodeStart))]
+    public class GravitySystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    [UpdateBefore(typeof(UTiny.Shared.UserCodeEnd))]
+    [UpdateAfter(typeof(UTiny.Shared.UserCodeStart))]
+    public class PlayerInputSystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    [UpdateBefore(typeof(UTiny.Shared.UserCodeEnd))]
+    [UpdateAfter(typeof(UTiny.Shared.UserCodeStart))]
+    public class VelocitySystemJS : IComponentSystem
     {
     }
 }

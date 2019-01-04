@@ -15,3 +15,4 @@ var ut = ut || {}
 ut.Shared = ut.Shared || {}
 ut.HTML = ut.HTML || {}
 ut.Rendering = ut.Rendering || {}
+ut.Profiler = ut.Profiler || {}

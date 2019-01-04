@@ -122,48 +122,6 @@
 
 @component
 @memberof game
-@name GameConfig
-*/
-/**
-
-@member {game.GameState}
-@memberof game.GameConfig
-@name state
-*/
-/**
-
-@member {float}
-@memberof game.GameConfig
-@name scrollSpeed
-*/
-/**
-
-@member {int32}
-@memberof game.GameConfig
-@name gravity
-*/
-/**
-
-@member {int32}
-@memberof game.GameConfig
-@name currentScore
-*/
-/**
-
-@member {int32}
-@memberof game.GameConfig
-@name highScore
-*/
-/**
-
-@member {float}
-@memberof game.GameConfig
-@name currentScrollSpeed
-*/
-/**
-
-@component
-@memberof game
 @name GameConfigTextValue
 */
 /**
@@ -296,24 +254,6 @@
 
 @component
 @memberof game
-@name SkinConfig
-*/
-/**
-
-@member {game.SkinType}
-@memberof game.SkinConfig
-@name theme
-*/
-/**
-
-@member {bool}
-@memberof game.SkinConfig
-@name force
-*/
-/**
-
-@component
-@memberof game
 @name Spacing
 */
 /**
@@ -387,6 +327,66 @@
 @member {ut.Math.Vector2}
 @memberof game.Velocity
 @name velocity
+*/
+/**
+
+@component
+@memberof game
+@name GameConfig
+*/
+/**
+
+@member {game.GameState}
+@memberof game.GameConfig
+@name state
+*/
+/**
+
+@member {float}
+@memberof game.GameConfig
+@name scrollSpeed
+*/
+/**
+
+@member {float}
+@memberof game.GameConfig
+@name gravity
+*/
+/**
+
+@member {int32}
+@memberof game.GameConfig
+@name currentScore
+*/
+/**
+
+@member {int32}
+@memberof game.GameConfig
+@name highScore
+*/
+/**
+
+@member {float}
+@memberof game.GameConfig
+@name currentScrollSpeed
+*/
+/**
+
+@component
+@memberof game
+@name SkinConfig
+*/
+/**
+
+@member {game.SkinType}
+@memberof game.SkinConfig
+@name theme
+*/
+/**
+
+@member {bool}
+@memberof game.SkinConfig
+@name forced
 */
 /**
 
@@ -615,6 +615,24 @@
 @system
 @memberof game
 @name GameManagerSystemJS
+*/
+/**
+
+@system
+@memberof game
+@name GravitySystemJS
+*/
+/**
+
+@system
+@memberof game
+@name PlayerInputSystemJS
+*/
+/**
+
+@system
+@memberof game
+@name VelocitySystemJS
 */
 
 

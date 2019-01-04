@@ -78,18 +78,6 @@ declare namespace ut {
 }
 declare var UT_ASSETS: Object;
 declare namespace game{
-    class AutoDestroy extends ut.Component {
-        constructor();
-        threshold: number;
-        static readonly cid: number;
-        static readonly _view: any;
-        static readonly _isSharedComp: boolean;
-        static _size: number;
-        static _fromPtr(p: number, v?: AutoDestroy): AutoDestroy;
-        static _toPtr(p: number, v: AutoDestroy): void;
-        static _tempHeapPtr(v: AutoDestroy): number;
-        static _dtorFn(v: AutoDestroy): void;
-    }
     class GameConfig extends ut.Component {
         constructor();
         state: GameState;
@@ -106,6 +94,31 @@ declare namespace game{
         static _toPtr(p: number, v: GameConfig): void;
         static _tempHeapPtr(v: GameConfig): number;
         static _dtorFn(v: GameConfig): void;
+    }
+    class SkinConfig extends ut.Component {
+        constructor();
+        theme: SkinType;
+        forced: boolean;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: SkinConfig): SkinConfig;
+        static _toPtr(p: number, v: SkinConfig): void;
+        static _tempHeapPtr(v: SkinConfig): number;
+        static _dtorFn(v: SkinConfig): void;
+    }
+    class AutoDestroy extends ut.Component {
+        constructor();
+        threshold: number;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: AutoDestroy): AutoDestroy;
+        static _toPtr(p: number, v: AutoDestroy): void;
+        static _tempHeapPtr(v: AutoDestroy): number;
+        static _dtorFn(v: AutoDestroy): void;
     }
     class GameConfigTextValue extends ut.Component {
         constructor();
@@ -218,19 +231,6 @@ declare namespace game{
         static _toPtr(p: number, v: Scroller): void;
         static _tempHeapPtr(v: Scroller): number;
         static _dtorFn(v: Scroller): void;
-    }
-    class SkinConfig extends ut.Component {
-        constructor();
-        theme: SkinType;
-        force: boolean;
-        static readonly cid: number;
-        static readonly _view: any;
-        static readonly _isSharedComp: boolean;
-        static _size: number;
-        static _fromPtr(p: number, v?: SkinConfig): SkinConfig;
-        static _toPtr(p: number, v: SkinConfig): void;
-        static _tempHeapPtr(v: SkinConfig): number;
-        static _dtorFn(v: SkinConfig): void;
     }
     class Spacing extends ut.Component {
         constructor();

@@ -367,134 +367,6 @@ game.AutoDestroy._typeDesc = (function() {
 Object.defineProperties(game.AutoDestroy, { cid: { configurable: true, get: function() { delete game.AutoDestroy.cid; var offsetsPtr = 0, offsetsCount = 0; return game.AutoDestroy.cid = Module._ut_component_register_cid_with_type(game.AutoDestroy._typeDesc, 4, 0, offsetsPtr, offsetsCount, 0, 0); } } });
 Object.defineProperties(game.AutoDestroy.StorageView, { cid: { configurable: true, get: function() { return game.AutoDestroy.cid; } } });
 game.AutoDestroy.threshold = { $ofs:0, $t:"float", $c:game.AutoDestroy };
-game.GameConfig = function(arg0, arg1, arg2, arg3, arg4, arg5) {
-  this._state = (arg0|0);
-  this._scrollSpeed = (+(arg1===undefined ? 0 : arg1));
-  this._gravity = (arg2|0);
-  this._currentScore = (arg3|0);
-  this._highScore = (arg4|0);
-  this._currentScrollSpeed = (+(arg5===undefined ? 0 : arg5));
-};
-game.GameConfig.prototype = Object.create(null);
-game.GameConfig.prototype.constructor = game.GameConfig;
-Object.defineProperties(game.GameConfig.prototype, {
-  state: {
-    get: function() { return this._state; },
-    set: function(v) { this._state = (v|0); },
-  },
-  scrollSpeed: {
-    get: function() { return this._scrollSpeed; },
-    set: function(v) { this._scrollSpeed = (+(v===undefined ? 0 : v)); },
-  },
-  gravity: {
-    get: function() { return this._gravity; },
-    set: function(v) { this._gravity = (v|0); },
-  },
-  currentScore: {
-    get: function() { return this._currentScore; },
-    set: function(v) { this._currentScore = (v|0); },
-  },
-  highScore: {
-    get: function() { return this._highScore; },
-    set: function(v) { this._highScore = (v|0); },
-  },
-  currentScrollSpeed: {
-    get: function() { return this._currentScrollSpeed; },
-    set: function(v) { this._currentScrollSpeed = (+(v===undefined ? 0 : v)); },
-  },
-});
-game.GameConfig._size = 24;
-game.GameConfig._fromPtr = function(ptr, v) {
-  v = v || Object.create(game.GameConfig.prototype);
-  v._state = HEAP32[(ptr+0)>>2];
-  v._scrollSpeed = HEAPF32[(ptr+4)>>2];
-  v._gravity = HEAP32[(ptr+8)>>2];
-  v._currentScore = HEAP32[(ptr+12)>>2];
-  v._highScore = HEAP32[(ptr+16)>>2];
-  v._currentScrollSpeed = HEAPF32[(ptr+20)>>2];
-  return v;
-};
-game.GameConfig._toPtr = function(ptr, v) {
-  HEAP32[(ptr+0)>>2] = v.state;
-  HEAPF32[(ptr+4)>>2] = v.scrollSpeed;
-  HEAP32[(ptr+8)>>2] = v.gravity;
-  HEAP32[(ptr+12)>>2] = v.currentScore;
-  HEAP32[(ptr+16)>>2] = v.highScore;
-  HEAPF32[(ptr+20)>>2] = v.currentScrollSpeed;
-};
-game.GameConfig._toTempHeapPtr = function(ptr, v) {
-  HEAP32[(ptr+0)>>2] = v.state;
-  HEAPF32[(ptr+4)>>2] = v.scrollSpeed;
-  HEAP32[(ptr+8)>>2] = v.gravity;
-  HEAP32[(ptr+12)>>2] = v.currentScore;
-  HEAP32[(ptr+16)>>2] = v.highScore;
-  HEAPF32[(ptr+20)>>2] = v.currentScrollSpeed;
-};
-game.GameConfig._tempHeapPtr = function(v) {
-  var ptr = ut.tempHeapPtrBufferZero(24);
-  if (v) game.GameConfig._toTempHeapPtr(ptr, v);
-  return ptr;
-};
-game.GameConfig.StorageView = function(ptr) {
-  this._ptr = ptr;
-};
-game.GameConfig.StorageView.prototype = Object.create(null);
-game.GameConfig.StorageView.prototype.constructor = game.GameConfig.StorageView;
-game.GameConfig._view = game.GameConfig.StorageView;
-game.GameConfig.StorageView._isSharedComp = game.GameConfig._isSharedComp = false;
-game.GameConfig.StorageView._fromPtr = game.GameConfig._fromPtr;
-game.GameConfig.StorageView._toPtr = game.GameConfig._toPtr;
-game.GameConfig.StorageView._tempHeapPtr = game.GameConfig._tempHeapPtr;
-game.GameConfig.StorageView._size = game.GameConfig._size;
-game.GameConfig.StorageView.prototype.$advance = function() {
-  this._ptr += 24;
-};
-Object.defineProperties(game.GameConfig.StorageView.prototype, {
-  state: {
-    get: function() { return HEAP32[(this._ptr+0)>>2]; },
-    set: function(v) { HEAP32[(this._ptr+0)>>2] = v; },
-  },
-  scrollSpeed: {
-    get: function() { return HEAPF32[(this._ptr+4)>>2]; },
-    set: function(v) { HEAPF32[(this._ptr+4)>>2] = v; },
-  },
-  gravity: {
-    get: function() { return HEAP32[(this._ptr+8)>>2]; },
-    set: function(v) { HEAP32[(this._ptr+8)>>2] = v; },
-  },
-  currentScore: {
-    get: function() { return HEAP32[(this._ptr+12)>>2]; },
-    set: function(v) { HEAP32[(this._ptr+12)>>2] = v; },
-  },
-  highScore: {
-    get: function() { return HEAP32[(this._ptr+16)>>2]; },
-    set: function(v) { HEAP32[(this._ptr+16)>>2] = v; },
-  },
-  currentScrollSpeed: {
-    get: function() { return HEAPF32[(this._ptr+20)>>2]; },
-    set: function(v) { HEAPF32[(this._ptr+20)>>2] = v; },
-  },
-});
-game.GameConfig._dtorFn = function dtor(ptr) { /* POD, no-op */ }
-// game.GameConfig is a POD type, so a JavaScript side copy constructor game.GameConfig._copyFn = function copy(src, dst) { ... } does not need to be generated for it
-game.GameConfig._typeDesc = (function() {
-  return ut.meta.allocType(5, 'game.GameConfig', 24, [
-    {name: 'state', offset: 0, type: ut.meta.getType('game.GameState')},
-    {name: 'scrollSpeed', offset: 4, type: ut.meta.getType('float')},
-    {name: 'gravity', offset: 8, type: ut.meta.getType('int32')},
-    {name: 'currentScore', offset: 12, type: ut.meta.getType('int32')},
-    {name: 'highScore', offset: 16, type: ut.meta.getType('int32')},
-    {name: 'currentScrollSpeed', offset: 20, type: ut.meta.getType('float')}
-  ]);
-})();
-Object.defineProperties(game.GameConfig, { cid: { configurable: true, get: function() { delete game.GameConfig.cid; var offsetsPtr = 0, offsetsCount = 0; return game.GameConfig.cid = Module._ut_component_register_cid_with_type(game.GameConfig._typeDesc, 4, 0, offsetsPtr, offsetsCount, 0, 0); } } });
-Object.defineProperties(game.GameConfig.StorageView, { cid: { configurable: true, get: function() { return game.GameConfig.cid; } } });
-game.GameConfig.state = { $ofs:0, $t:"game.GameState", $c:game.GameConfig };
-game.GameConfig.scrollSpeed = { $ofs:4, $t:"float", $c:game.GameConfig };
-game.GameConfig.gravity = { $ofs:8, $t:"int32_t", $c:game.GameConfig };
-game.GameConfig.currentScore = { $ofs:12, $t:"int32_t", $c:game.GameConfig };
-game.GameConfig.highScore = { $ofs:16, $t:"int32_t", $c:game.GameConfig };
-game.GameConfig.currentScrollSpeed = { $ofs:20, $t:"float", $c:game.GameConfig };
 game.GameConfigTextValue = function(arg0) {
   this._key = (arg0 === undefined ? '' : arg0);
 };
@@ -1093,78 +965,6 @@ game.Scroller._typeDesc = (function() {
 Object.defineProperties(game.Scroller, { cid: { configurable: true, get: function() { delete game.Scroller.cid; var offsetsPtr = 0, offsetsCount = 0; return game.Scroller.cid = Module._ut_component_register_cid_with_type(game.Scroller._typeDesc, 4, 0, offsetsPtr, offsetsCount, 0, 0); } } });
 Object.defineProperties(game.Scroller.StorageView, { cid: { configurable: true, get: function() { return game.Scroller.cid; } } });
 game.Scroller.value = { $ofs:0, $t:"int32_t", $c:game.Scroller };
-game.SkinConfig = function(arg0, arg1) {
-  this._theme = (arg0|0);
-  this._force = (arg1 ? true : false);
-};
-game.SkinConfig.prototype = Object.create(null);
-game.SkinConfig.prototype.constructor = game.SkinConfig;
-Object.defineProperties(game.SkinConfig.prototype, {
-  theme: {
-    get: function() { return this._theme; },
-    set: function(v) { this._theme = (v|0); },
-  },
-  force: {
-    get: function() { return this._force; },
-    set: function(v) { this._force = (v ? true : false); },
-  },
-});
-game.SkinConfig._size = 8;
-game.SkinConfig._fromPtr = function(ptr, v) {
-  v = v || Object.create(game.SkinConfig.prototype);
-  v._theme = HEAP32[(ptr+0)>>2];
-  v._force = (HEAP8[ptr+4]?true:false);
-  return v;
-};
-game.SkinConfig._toPtr = function(ptr, v) {
-  HEAP32[(ptr+0)>>2] = v.theme;
-  HEAP8[ptr+4] = (v.force)?1:0;
-};
-game.SkinConfig._toTempHeapPtr = function(ptr, v) {
-  HEAP32[(ptr+0)>>2] = v.theme;
-  HEAP8[ptr+4] = (v.force)?1:0;
-};
-game.SkinConfig._tempHeapPtr = function(v) {
-  var ptr = ut.tempHeapPtrBufferZero(8);
-  if (v) game.SkinConfig._toTempHeapPtr(ptr, v);
-  return ptr;
-};
-game.SkinConfig.StorageView = function(ptr) {
-  this._ptr = ptr;
-};
-game.SkinConfig.StorageView.prototype = Object.create(null);
-game.SkinConfig.StorageView.prototype.constructor = game.SkinConfig.StorageView;
-game.SkinConfig._view = game.SkinConfig.StorageView;
-game.SkinConfig.StorageView._isSharedComp = game.SkinConfig._isSharedComp = false;
-game.SkinConfig.StorageView._fromPtr = game.SkinConfig._fromPtr;
-game.SkinConfig.StorageView._toPtr = game.SkinConfig._toPtr;
-game.SkinConfig.StorageView._tempHeapPtr = game.SkinConfig._tempHeapPtr;
-game.SkinConfig.StorageView._size = game.SkinConfig._size;
-game.SkinConfig.StorageView.prototype.$advance = function() {
-  this._ptr += 8;
-};
-Object.defineProperties(game.SkinConfig.StorageView.prototype, {
-  theme: {
-    get: function() { return HEAP32[(this._ptr+0)>>2]; },
-    set: function(v) { HEAP32[(this._ptr+0)>>2] = v; },
-  },
-  force: {
-    get: function() { return (HEAP8[this._ptr+4]?true:false); },
-    set: function(v) { HEAP8[this._ptr+4] = (v)?1:0; },
-  },
-});
-game.SkinConfig._dtorFn = function dtor(ptr) { /* POD, no-op */ }
-// game.SkinConfig is a POD type, so a JavaScript side copy constructor game.SkinConfig._copyFn = function copy(src, dst) { ... } does not need to be generated for it
-game.SkinConfig._typeDesc = (function() {
-  return ut.meta.allocType(5, 'game.SkinConfig', 8, [
-    {name: 'theme', offset: 0, type: ut.meta.getType('game.SkinType')},
-    {name: 'force', offset: 4, type: ut.meta.getType('bool')}
-  ]);
-})();
-Object.defineProperties(game.SkinConfig, { cid: { configurable: true, get: function() { delete game.SkinConfig.cid; var offsetsPtr = 0, offsetsCount = 0; return game.SkinConfig.cid = Module._ut_component_register_cid_with_type(game.SkinConfig._typeDesc, 4, 0, offsetsPtr, offsetsCount, 0, 0); } } });
-Object.defineProperties(game.SkinConfig.StorageView, { cid: { configurable: true, get: function() { return game.SkinConfig.cid; } } });
-game.SkinConfig.theme = { $ofs:0, $t:"game.SkinType", $c:game.SkinConfig };
-game.SkinConfig.force = { $ofs:4, $t:"bool", $c:game.SkinConfig };
 game.Spacing = function(arg0, arg1, arg2) {
   this._top = (arg0 === undefined ? new ut.Entity : arg0);
   this._bottom = (arg1 === undefined ? new ut.Entity : arg1);
@@ -1443,6 +1243,206 @@ Object.defineProperties(game.Velocity.StorageView, { cid: { configurable: true, 
 game.Velocity.velocity = { $ofs:0, $t:"ut.Math.Vector2", $c:game.Velocity };
 game.Velocity.velocity.y = { $ofs:4, $t:"float", $c:game.Velocity };
 game.Velocity.velocity.x = { $ofs:0, $t:"float", $c:game.Velocity };
+game.GameConfig = function(arg0, arg1, arg2, arg3, arg4, arg5) {
+  this._state = (arg0|0);
+  this._scrollSpeed = (+(arg1===undefined ? 0 : arg1));
+  this._gravity = (+(arg2===undefined ? 0 : arg2));
+  this._currentScore = (arg3|0);
+  this._highScore = (arg4|0);
+  this._currentScrollSpeed = (+(arg5===undefined ? 0 : arg5));
+};
+game.GameConfig.prototype = Object.create(null);
+game.GameConfig.prototype.constructor = game.GameConfig;
+Object.defineProperties(game.GameConfig.prototype, {
+  state: {
+    get: function() { return this._state; },
+    set: function(v) { this._state = (v|0); },
+  },
+  scrollSpeed: {
+    get: function() { return this._scrollSpeed; },
+    set: function(v) { this._scrollSpeed = (+(v===undefined ? 0 : v)); },
+  },
+  gravity: {
+    get: function() { return this._gravity; },
+    set: function(v) { this._gravity = (+(v===undefined ? 0 : v)); },
+  },
+  currentScore: {
+    get: function() { return this._currentScore; },
+    set: function(v) { this._currentScore = (v|0); },
+  },
+  highScore: {
+    get: function() { return this._highScore; },
+    set: function(v) { this._highScore = (v|0); },
+  },
+  currentScrollSpeed: {
+    get: function() { return this._currentScrollSpeed; },
+    set: function(v) { this._currentScrollSpeed = (+(v===undefined ? 0 : v)); },
+  },
+});
+game.GameConfig._size = 24;
+game.GameConfig._fromPtr = function(ptr, v) {
+  v = v || Object.create(game.GameConfig.prototype);
+  v._state = HEAP32[(ptr+0)>>2];
+  v._scrollSpeed = HEAPF32[(ptr+4)>>2];
+  v._gravity = HEAPF32[(ptr+8)>>2];
+  v._currentScore = HEAP32[(ptr+12)>>2];
+  v._highScore = HEAP32[(ptr+16)>>2];
+  v._currentScrollSpeed = HEAPF32[(ptr+20)>>2];
+  return v;
+};
+game.GameConfig._toPtr = function(ptr, v) {
+  HEAP32[(ptr+0)>>2] = v.state;
+  HEAPF32[(ptr+4)>>2] = v.scrollSpeed;
+  HEAPF32[(ptr+8)>>2] = v.gravity;
+  HEAP32[(ptr+12)>>2] = v.currentScore;
+  HEAP32[(ptr+16)>>2] = v.highScore;
+  HEAPF32[(ptr+20)>>2] = v.currentScrollSpeed;
+};
+game.GameConfig._toTempHeapPtr = function(ptr, v) {
+  HEAP32[(ptr+0)>>2] = v.state;
+  HEAPF32[(ptr+4)>>2] = v.scrollSpeed;
+  HEAPF32[(ptr+8)>>2] = v.gravity;
+  HEAP32[(ptr+12)>>2] = v.currentScore;
+  HEAP32[(ptr+16)>>2] = v.highScore;
+  HEAPF32[(ptr+20)>>2] = v.currentScrollSpeed;
+};
+game.GameConfig._tempHeapPtr = function(v) {
+  var ptr = ut.tempHeapPtrBufferZero(24);
+  if (v) game.GameConfig._toTempHeapPtr(ptr, v);
+  return ptr;
+};
+game.GameConfig.StorageView = function(ptr) {
+  this._ptr = ptr;
+};
+game.GameConfig.StorageView.prototype = Object.create(null);
+game.GameConfig.StorageView.prototype.constructor = game.GameConfig.StorageView;
+game.GameConfig._view = game.GameConfig.StorageView;
+game.GameConfig.StorageView._isSharedComp = game.GameConfig._isSharedComp = false;
+game.GameConfig.StorageView._fromPtr = game.GameConfig._fromPtr;
+game.GameConfig.StorageView._toPtr = game.GameConfig._toPtr;
+game.GameConfig.StorageView._tempHeapPtr = game.GameConfig._tempHeapPtr;
+game.GameConfig.StorageView._size = game.GameConfig._size;
+game.GameConfig.StorageView.prototype.$advance = function() {
+  this._ptr += 24;
+};
+Object.defineProperties(game.GameConfig.StorageView.prototype, {
+  state: {
+    get: function() { return HEAP32[(this._ptr+0)>>2]; },
+    set: function(v) { HEAP32[(this._ptr+0)>>2] = v; },
+  },
+  scrollSpeed: {
+    get: function() { return HEAPF32[(this._ptr+4)>>2]; },
+    set: function(v) { HEAPF32[(this._ptr+4)>>2] = v; },
+  },
+  gravity: {
+    get: function() { return HEAPF32[(this._ptr+8)>>2]; },
+    set: function(v) { HEAPF32[(this._ptr+8)>>2] = v; },
+  },
+  currentScore: {
+    get: function() { return HEAP32[(this._ptr+12)>>2]; },
+    set: function(v) { HEAP32[(this._ptr+12)>>2] = v; },
+  },
+  highScore: {
+    get: function() { return HEAP32[(this._ptr+16)>>2]; },
+    set: function(v) { HEAP32[(this._ptr+16)>>2] = v; },
+  },
+  currentScrollSpeed: {
+    get: function() { return HEAPF32[(this._ptr+20)>>2]; },
+    set: function(v) { HEAPF32[(this._ptr+20)>>2] = v; },
+  },
+});
+game.GameConfig._dtorFn = function dtor(ptr) { /* POD, no-op */ }
+// game.GameConfig is a POD type, so a JavaScript side copy constructor game.GameConfig._copyFn = function copy(src, dst) { ... } does not need to be generated for it
+game.GameConfig._typeDesc = (function() {
+  return ut.meta.allocType(5, 'game.GameConfig', 24, [
+    {name: 'state', offset: 0, type: ut.meta.getType('game.GameState')},
+    {name: 'scrollSpeed', offset: 4, type: ut.meta.getType('float')},
+    {name: 'gravity', offset: 8, type: ut.meta.getType('float')},
+    {name: 'currentScore', offset: 12, type: ut.meta.getType('int32')},
+    {name: 'highScore', offset: 16, type: ut.meta.getType('int32')},
+    {name: 'currentScrollSpeed', offset: 20, type: ut.meta.getType('float')}
+  ]);
+})();
+Object.defineProperties(game.GameConfig, { cid: { configurable: true, get: function() { delete game.GameConfig.cid; var offsetsPtr = 0, offsetsCount = 0; return game.GameConfig.cid = Module._ut_component_register_cid_with_type(game.GameConfig._typeDesc, 4, 0, offsetsPtr, offsetsCount, 0, 0); } } });
+Object.defineProperties(game.GameConfig.StorageView, { cid: { configurable: true, get: function() { return game.GameConfig.cid; } } });
+game.GameConfig.state = { $ofs:0, $t:"game.GameState", $c:game.GameConfig };
+game.GameConfig.scrollSpeed = { $ofs:4, $t:"float", $c:game.GameConfig };
+game.GameConfig.gravity = { $ofs:8, $t:"float", $c:game.GameConfig };
+game.GameConfig.currentScore = { $ofs:12, $t:"int32_t", $c:game.GameConfig };
+game.GameConfig.highScore = { $ofs:16, $t:"int32_t", $c:game.GameConfig };
+game.GameConfig.currentScrollSpeed = { $ofs:20, $t:"float", $c:game.GameConfig };
+game.SkinConfig = function(arg0, arg1) {
+  this._theme = (arg0|0);
+  this._forced = (arg1 ? true : false);
+};
+game.SkinConfig.prototype = Object.create(null);
+game.SkinConfig.prototype.constructor = game.SkinConfig;
+Object.defineProperties(game.SkinConfig.prototype, {
+  theme: {
+    get: function() { return this._theme; },
+    set: function(v) { this._theme = (v|0); },
+  },
+  forced: {
+    get: function() { return this._forced; },
+    set: function(v) { this._forced = (v ? true : false); },
+  },
+});
+game.SkinConfig._size = 8;
+game.SkinConfig._fromPtr = function(ptr, v) {
+  v = v || Object.create(game.SkinConfig.prototype);
+  v._theme = HEAP32[(ptr+0)>>2];
+  v._forced = (HEAP8[ptr+4]?true:false);
+  return v;
+};
+game.SkinConfig._toPtr = function(ptr, v) {
+  HEAP32[(ptr+0)>>2] = v.theme;
+  HEAP8[ptr+4] = (v.forced)?1:0;
+};
+game.SkinConfig._toTempHeapPtr = function(ptr, v) {
+  HEAP32[(ptr+0)>>2] = v.theme;
+  HEAP8[ptr+4] = (v.forced)?1:0;
+};
+game.SkinConfig._tempHeapPtr = function(v) {
+  var ptr = ut.tempHeapPtrBufferZero(8);
+  if (v) game.SkinConfig._toTempHeapPtr(ptr, v);
+  return ptr;
+};
+game.SkinConfig.StorageView = function(ptr) {
+  this._ptr = ptr;
+};
+game.SkinConfig.StorageView.prototype = Object.create(null);
+game.SkinConfig.StorageView.prototype.constructor = game.SkinConfig.StorageView;
+game.SkinConfig._view = game.SkinConfig.StorageView;
+game.SkinConfig.StorageView._isSharedComp = game.SkinConfig._isSharedComp = false;
+game.SkinConfig.StorageView._fromPtr = game.SkinConfig._fromPtr;
+game.SkinConfig.StorageView._toPtr = game.SkinConfig._toPtr;
+game.SkinConfig.StorageView._tempHeapPtr = game.SkinConfig._tempHeapPtr;
+game.SkinConfig.StorageView._size = game.SkinConfig._size;
+game.SkinConfig.StorageView.prototype.$advance = function() {
+  this._ptr += 8;
+};
+Object.defineProperties(game.SkinConfig.StorageView.prototype, {
+  theme: {
+    get: function() { return HEAP32[(this._ptr+0)>>2]; },
+    set: function(v) { HEAP32[(this._ptr+0)>>2] = v; },
+  },
+  forced: {
+    get: function() { return (HEAP8[this._ptr+4]?true:false); },
+    set: function(v) { HEAP8[this._ptr+4] = (v)?1:0; },
+  },
+});
+game.SkinConfig._dtorFn = function dtor(ptr) { /* POD, no-op */ }
+// game.SkinConfig is a POD type, so a JavaScript side copy constructor game.SkinConfig._copyFn = function copy(src, dst) { ... } does not need to be generated for it
+game.SkinConfig._typeDesc = (function() {
+  return ut.meta.allocType(5, 'game.SkinConfig', 8, [
+    {name: 'theme', offset: 0, type: ut.meta.getType('game.SkinType')},
+    {name: 'forced', offset: 4, type: ut.meta.getType('bool')}
+  ]);
+})();
+Object.defineProperties(game.SkinConfig, { cid: { configurable: true, get: function() { delete game.SkinConfig.cid; var offsetsPtr = 0, offsetsCount = 0; return game.SkinConfig.cid = Module._ut_component_register_cid_with_type(game.SkinConfig._typeDesc, 4, 0, offsetsPtr, offsetsCount, 0, 0); } } });
+Object.defineProperties(game.SkinConfig.StorageView, { cid: { configurable: true, get: function() { return game.SkinConfig.cid; } } });
+game.SkinConfig.theme = { $ofs:0, $t:"game.SkinType", $c:game.SkinConfig };
+game.SkinConfig.forced = { $ofs:4, $t:"bool", $c:game.SkinConfig };
 var ut = ut || {};
 ut.Core2D = ut.Core2D || {};
 ut.Core2D.layers = ut.Core2D.layers || {};
@@ -2445,6 +2445,21 @@ Object.defineProperties(ut.EditorExtensions.EntityLayer.StorageView, { cid: { co
 ut.EditorExtensions.EntityLayer.layer = { $ofs:0, $t:"int32_t", $c:ut.EditorExtensions.EntityLayer };
 game.GameManagerSystemJS = ut.System.define({
   name: "game.GameManagerSystemJS"
+ ,updatesBefore: ["UTiny.Shared.UserCodeEnd"]
+ ,updatesAfter: ["UTiny.Shared.UserCodeStart"]
+});
+game.GravitySystemJS = ut.System.define({
+  name: "game.GravitySystemJS"
+ ,updatesBefore: ["UTiny.Shared.UserCodeEnd"]
+ ,updatesAfter: ["UTiny.Shared.UserCodeStart"]
+});
+game.PlayerInputSystemJS = ut.System.define({
+  name: "game.PlayerInputSystemJS"
+ ,updatesBefore: ["UTiny.Shared.UserCodeEnd"]
+ ,updatesAfter: ["UTiny.Shared.UserCodeStart"]
+});
+game.VelocitySystemJS = ut.System.define({
+  name: "game.VelocitySystemJS"
  ,updatesBefore: ["UTiny.Shared.UserCodeEnd"]
  ,updatesAfter: ["UTiny.Shared.UserCodeStart"]
 });
