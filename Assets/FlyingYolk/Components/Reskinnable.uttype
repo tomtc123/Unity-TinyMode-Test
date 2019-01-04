@@ -1,0 +1,19 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "e043fd7d2ef442e1839b7bd1e1285417",
+    "Name": "Reskinnable",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "cf25a79fa22d469c975c7fcfda14d35f",
+        "Name": "theme",
+        "FieldType": { "Id": "fcfd83f3739a4f7c80930d22062b83a0", "Name": "SkinType" },
+        "Array": false,
+        "Visibility": 0
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "e043fd7d2ef442e1839b7bd1e1285417", "Name": "Reskinnable" }
+    }
+}]

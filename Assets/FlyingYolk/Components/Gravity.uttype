@@ -1,0 +1,19 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "3483ebe87b3b4817890e8f0741f07369",
+    "Name": "Gravity",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "ef06f866c9d14f9ba215238854cd121b",
+        "Name": "gravity",
+        "FieldType": { "Id": "3abb69286ddfc2d1c617a173c1eeb35d", "Name": "Vector2" },
+        "Array": false,
+        "Visibility": 0
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "3483ebe87b3b4817890e8f0741f07369", "Name": "Gravity" }
+    }
+}]

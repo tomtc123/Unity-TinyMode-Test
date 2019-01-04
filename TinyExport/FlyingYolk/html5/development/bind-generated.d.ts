@@ -78,6 +78,217 @@ declare namespace ut {
 }
 declare var UT_ASSETS: Object;
 declare namespace game{
+    class Reskinnable extends ut.Component {
+        constructor();
+        theme: SkinType;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: Reskinnable): Reskinnable;
+        static _toPtr(p: number, v: Reskinnable): void;
+        static _tempHeapPtr(v: Reskinnable): number;
+        static _dtorFn(v: Reskinnable): void;
+    }
+    class Gravity extends ut.Component {
+        constructor();
+        gravity: ut.Math.Vector2;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: Gravity): Gravity;
+        static _toPtr(p: number, v: Gravity): void;
+        static _tempHeapPtr(v: Gravity): number;
+        static _dtorFn(v: Gravity): void;
+    }
+    class Ground extends ut.Component {
+        constructor();
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: Ground): Ground;
+        static _toPtr(p: number, v: Ground): void;
+        static _tempHeapPtr(v: Ground): number;
+        static _dtorFn(v: Ground): void;
+    }
+    class PlayerInput extends ut.Component {
+        constructor();
+        force: number;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: PlayerInput): PlayerInput;
+        static _toPtr(p: number, v: PlayerInput): void;
+        static _tempHeapPtr(v: PlayerInput): number;
+        static _dtorFn(v: PlayerInput): void;
+    }
+    class AutoDestroy extends ut.Component {
+        constructor();
+        threshold: number;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: AutoDestroy): AutoDestroy;
+        static _toPtr(p: number, v: AutoDestroy): void;
+        static _tempHeapPtr(v: AutoDestroy): number;
+        static _dtorFn(v: AutoDestroy): void;
+    }
+    class SkinConfig extends ut.Component {
+        constructor();
+        theme: SkinType;
+        force: boolean;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: SkinConfig): SkinConfig;
+        static _toPtr(p: number, v: SkinConfig): void;
+        static _tempHeapPtr(v: SkinConfig): number;
+        static _dtorFn(v: SkinConfig): void;
+    }
+    class ScorePoint extends ut.Component {
+        constructor();
+        value: number;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: ScorePoint): ScorePoint;
+        static _toPtr(p: number, v: ScorePoint): void;
+        static _tempHeapPtr(v: ScorePoint): number;
+        static _dtorFn(v: ScorePoint): void;
+    }
+    class GameConfig extends ut.Component {
+        constructor();
+        state: GameState;
+        scrollSpeed: number;
+        gravity: number;
+        currentScore: number;
+        highScore: number;
+        currentScrollSpeed: number;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: GameConfig): GameConfig;
+        static _toPtr(p: number, v: GameConfig): void;
+        static _tempHeapPtr(v: GameConfig): number;
+        static _dtorFn(v: GameConfig): void;
+    }
+    class GameConfigTextValue extends ut.Component {
+        constructor();
+        key: string;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: GameConfigTextValue): GameConfigTextValue;
+        static _toPtr(p: number, v: GameConfigTextValue): void;
+        static _tempHeapPtr(v: GameConfigTextValue): number;
+        static _dtorFn(v: GameConfigTextValue): void;
+    }
+    class NumberTextRenderer extends ut.Component {
+        constructor();
+        value: number;
+        spacing: number;
+        alignment: TextAlignment;
+        renderers: ut.Entity[];
+        characters: ut.Entity[];
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: NumberTextRenderer): NumberTextRenderer;
+        static _toPtr(p: number, v: NumberTextRenderer): void;
+        static _tempHeapPtr(v: NumberTextRenderer): number;
+        static _dtorFn(v: NumberTextRenderer): void;
+    }
+    class RepeatingBackground extends ut.Component {
+        constructor();
+        threshold: number;
+        distance: number;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: RepeatingBackground): RepeatingBackground;
+        static _toPtr(p: number, v: RepeatingBackground): void;
+        static _tempHeapPtr(v: RepeatingBackground): number;
+        static _dtorFn(v: RepeatingBackground): void;
+    }
+    class Scroller extends ut.Component {
+        constructor();
+        value: number;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: Scroller): Scroller;
+        static _toPtr(p: number, v: Scroller): void;
+        static _tempHeapPtr(v: Scroller): number;
+        static _dtorFn(v: Scroller): void;
+    }
+    class Spacing extends ut.Component {
+        constructor();
+        top: ut.Entity;
+        bottom: ut.Entity;
+        spacing: number;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: Spacing): Spacing;
+        static _toPtr(p: number, v: Spacing): void;
+        static _tempHeapPtr(v: Spacing): number;
+        static _dtorFn(v: Spacing): void;
+    }
+    class Spawner extends ut.Component {
+        constructor();
+        time: number;
+        delay: number;
+        paused: boolean;
+        distance: number;
+        minHeight: number;
+        maxHeight: number;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: Spawner): Spawner;
+        static _toPtr(p: number, v: Spawner): void;
+        static _tempHeapPtr(v: Spawner): number;
+        static _dtorFn(v: Spawner): void;
+    }
+    class Velocity extends ut.Component {
+        constructor();
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: Velocity): Velocity;
+        static _toPtr(p: number, v: Velocity): void;
+        static _tempHeapPtr(v: Velocity): number;
+        static _dtorFn(v: Velocity): void;
+    }
+    enum SkinType {
+        Day = 0,
+        Night = 1,
+    }
+    enum GameState {
+        Initialize = 0,
+        Menu = 1,
+        Tutorial = 2,
+        Play = 3,
+        GameOver = 4,
+    }
+    enum TextAlignment {
+        Center = 0,
+        Right = 1,
+    }
 }
 declare namespace ut{
 }
@@ -215,7 +426,12 @@ declare namespace ut{
         [module: string]: any;
         game: {
             [data: string]: EntityGroupData;
-            NewEntityGroup: EntityGroupData;
+            Bootstrap: EntityGroupData;
+            GameScene: EntityGroupData;
+            GameOver: EntityGroupData;
+            Pipes: EntityGroupData;
+            Score: EntityGroupData;
+            Tutorial: EntityGroupData;
         }
     }
 }

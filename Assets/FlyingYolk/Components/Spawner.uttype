@@ -1,0 +1,12 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "57001ebfb4ca4058b60f2619ec01fbae",
+    "Name": "Spawner",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "DefaultValue": {
+        "Type": { "Id": "57001ebfb4ca4058b60f2619ec01fbae", "Name": "Spawner" }
+    }
+}]

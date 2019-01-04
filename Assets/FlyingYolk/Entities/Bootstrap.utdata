@@ -1,7 +1,7 @@
 ﻿[{
     "$TypeId": 4,
     "Id": "3741818578514fe8a98fb23a8ac92234",
-    "Name": "NewEntityGroup",
+    "Name": "Bootstrap",
     "ExportFlags": 0,
     "SerializedVersion": 0,
     "Entities": [
@@ -20,6 +20,7 @@
     }, {
         "Type": { "Id": "12692383f3fef3bb74c209888c5b0939", "Name": "Camera2D" },
         "Properties": {
+            "halfVerticalSize": 1.28,
             "backgroundColor": {
                 "Type": { "Id": "2a90a1633d6dc16cd37cdfaca7b93cea", "Name": "Color" },
                 "Properties": {
@@ -36,7 +37,7 @@
                 "Name": "SolidColor",
                 "Value": 1
             },
-            "depth": -1
+            "depth": 0
         }
     }]
 }]

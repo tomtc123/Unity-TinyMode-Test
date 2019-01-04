@@ -1,0 +1,12 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "76794400701f43e282a5bc198ec8b91f",
+    "Name": "RepeatingBackground",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "DefaultValue": {
+        "Type": { "Id": "76794400701f43e282a5bc198ec8b91f", "Name": "RepeatingBackground" }
+    }
+}]

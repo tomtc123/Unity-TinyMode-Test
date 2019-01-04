@@ -1,0 +1,12 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "3106d27d7b3b45ba92be9ededd87a357",
+    "Name": "Ground",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "DefaultValue": {
+        "Type": { "Id": "3106d27d7b3b45ba92be9ededd87a357", "Name": "Ground" }
+    }
+}]
