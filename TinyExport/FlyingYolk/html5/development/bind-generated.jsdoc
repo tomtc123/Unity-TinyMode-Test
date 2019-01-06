@@ -620,6 +620,18 @@
 
 @system
 @memberof game
+@name NumberTextRenderingSystemJS
+*/
+/**
+
+@system
+@memberof game
+@name GameNumberTextValueSystemJS
+*/
+/**
+
+@system
+@memberof game
 @name GameManagerSystemJS
 */
 /**
@@ -651,6 +663,12 @@
 @system
 @memberof game
 @name RepeatingBackgroundSystemJS
+*/
+/**
+
+@system
+@memberof game
+@name ScorePointSystemJS
 */
 /**
 

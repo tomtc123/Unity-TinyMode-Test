@@ -39,14 +39,94 @@ var game;
 })(game || (game = {}));
 var game;
 (function (game) {
+    var NumberTextRenderingSystem = /** @class */ (function (_super) {
+        __extends(NumberTextRenderingSystem, _super);
+        function NumberTextRenderingSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        NumberTextRenderingSystem.prototype.OnUpdate = function () {
+            var _this = this;
+            this.world.forEach([game.NumberTextRenderer], function (numberrenderer) {
+                var value = numberrenderer.value;
+                var spacing = numberrenderer.spacing;
+                var alignment = numberrenderer.alignment;
+                var renderers = numberrenderer.renderers;
+                var characters = numberrenderer.characters;
+                var digits = value.toString();
+                var count = digits.length;
+                var width = count * spacing;
+                for (var i = 0; i < renderers.length; ++i) {
+                    var renderer = renderers[i];
+                    var spriteRenderer = _this.world.getComponentData(renderer, ut.Core2D.Sprite2DRenderer);
+                    var color = spriteRenderer.color;
+                    if (i < count) {
+                        color.a = 1;
+                        spriteRenderer.sprite = characters[digits[count - i - 1]];
+                        var position = void 0;
+                        if (alignment == game.TextAlignment.Center) {
+                            position = new Vector3(spacing * (count - i - 1) - (width - spacing) * 0.5, 0, 0);
+                        }
+                        else {
+                            position = new Vector3(spacing * -i, 0, 0);
+                        }
+                        _this.world.setComponentData(renderer, new ut.Core2D.TransformLocalPosition(position));
+                    }
+                    else {
+                        color.a = 0;
+                    }
+                    spriteRenderer.color = color;
+                    _this.world.setComponentData(renderer, spriteRenderer);
+                }
+            });
+        };
+        NumberTextRenderingSystem = __decorate([
+            ut.executeAfter(ut.Shared.UserCodeStart),
+            ut.executeBefore(ut.Shared.UserCodeEnd),
+            ut.requiredComponents(game.NumberTextRenderer)
+        ], NumberTextRenderingSystem);
+        return NumberTextRenderingSystem;
+    }(ut.ComponentSystem));
+    game.NumberTextRenderingSystem = NumberTextRenderingSystem;
+})(game || (game = {}));
+/// <reference path="NumberTextRenderingSystem.ts" />
+var game;
+(function (game) {
+    var GameNumberTextValueSystem = /** @class */ (function (_super) {
+        __extends(GameNumberTextValueSystem, _super);
+        function GameNumberTextValueSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        /**
+         * Sets the value of the `NumberTextRenderer` based on a property of the `GameConfig`
+         *
+         * @note this relies some TypeScript/JavaScript magic to work
+         */
+        GameNumberTextValueSystem.prototype.OnUpdate = function () {
+            var gameConfig = this.world.getConfigData(game.GameConfig);
+            this.world.forEach([ut.Entity, game.NumberTextRenderer, game.GameConfigTextValue], function (entity, renderer, value) {
+                // assign the value based on the `GameConfig` property by name
+                renderer.value = gameConfig[value.key];
+            });
+        };
+        GameNumberTextValueSystem = __decorate([
+            ut.executeAfter(ut.Shared.UserCodeStart),
+            ut.executeBefore(ut.Shared.UserCodeEnd),
+            ut.executeBefore(game.NumberTextRenderingSystem),
+            ut.requiredComponents(game.NumberTextRenderer, game.GameConfigTextValue)
+        ], GameNumberTextValueSystem);
+        return GameNumberTextValueSystem;
+    }(ut.ComponentSystem));
+    game.GameNumberTextValueSystem = GameNumberTextValueSystem;
+})(game || (game = {}));
+var game;
+(function (game) {
     var GameManagerSystem = /** @class */ (function (_super) {
         __extends(GameManagerSystem, _super);
         function GameManagerSystem() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
         GameManagerSystem.prototype.OnUpdate = function () {
-            var config = this.world.getConfigData(game.GameConfig);
-            switch (config.state) {
+            switch (game.GameService.getGameState(this.world)) {
                 case game.GameState.Initialize:
                     {
                         game.GameService.initialize(this.world);
@@ -326,6 +406,41 @@ var game;
         return RepeatingBackgroundSystem;
     }(ut.ComponentSystem));
     game.RepeatingBackgroundSystem = RepeatingBackgroundSystem;
+})(game || (game = {}));
+var game;
+(function (game) {
+    var ScorePointSystem = /** @class */ (function (_super) {
+        __extends(ScorePointSystem, _super);
+        function ScorePointSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        ScorePointSystem.prototype.OnUpdate = function () {
+            var _this = this;
+            var player = game.GameService.getPlayer(this.world);
+            if (player.isNone()) {
+                return;
+            }
+            var gameConfig = game.GameService.getGameConfig(this.world);
+            var playerPosition = ut.Core2D.TransformService.computeWorldPosition(this.world, player);
+            this.world.forEach([ut.Entity, game.ScorePoint], function (entity, scorepoint) {
+                var p = ut.Core2D.TransformService.computeWorldPosition(_this.world, entity);
+                if (p.x < playerPosition.x) {
+                    gameConfig.currentScore += scorepoint.value;
+                    _this.world.removeComponent(entity, game.ScorePoint);
+                    _this.world.setConfigData(gameConfig);
+                    console.log("score=", gameConfig.currentScore);
+                }
+            });
+        };
+        ScorePointSystem = __decorate([
+            ut.executeAfter(ut.Shared.UserCodeStart),
+            ut.executeBefore(ut.Shared.UserCodeEnd),
+            ut.requiredComponents(game.ScorePoint),
+            ut.optionalComponents(ut.Audio.AudioSource)
+        ], ScorePointSystem);
+        return ScorePointSystem;
+    }(ut.ComponentSystem));
+    game.ScorePointSystem = ScorePointSystem;
 })(game || (game = {}));
 var game;
 (function (game) {

@@ -5,8 +5,7 @@ namespace game {
     export class GameManagerSystem extends ut.ComponentSystem {
 
         OnUpdate(): void {
-            let config = this.world.getConfigData(game.GameConfig);
-            switch(config.state) {
+            switch(game.GameService.getGameState(this.world)) {
                 case game.GameState.Initialize:
                 {
                     game.GameService.initialize(this.world);

@@ -2446,6 +2446,16 @@ ut.EditorExtensions.EntityLayer.layer = { $ofs:0, $t:"int32_t", $c:ut.EditorExte
 game.AutoDestroySystemJS = ut.System.define({
   name: "game.AutoDestroySystemJS"
 });
+game.NumberTextRenderingSystemJS = ut.System.define({
+  name: "game.NumberTextRenderingSystemJS"
+ ,updatesBefore: ["UTiny.Shared.UserCodeEnd"]
+ ,updatesAfter: ["UTiny.Shared.UserCodeStart"]
+});
+game.GameNumberTextValueSystemJS = ut.System.define({
+  name: "game.GameNumberTextValueSystemJS"
+ ,updatesBefore: ["UTiny.Shared.UserCodeEnd","game.NumberTextRenderingSystemJS"]
+ ,updatesAfter: ["UTiny.Shared.UserCodeStart"]
+});
 game.GameManagerSystemJS = ut.System.define({
   name: "game.GameManagerSystemJS"
  ,updatesBefore: ["UTiny.Shared.UserCodeEnd"]
@@ -2472,6 +2482,11 @@ game.ScrollerSystemJS = ut.System.define({
 game.RepeatingBackgroundSystemJS = ut.System.define({
   name: "game.RepeatingBackgroundSystemJS"
  ,updatesAfter: ["game.ScrollerSystemJS"]
+});
+game.ScorePointSystemJS = ut.System.define({
+  name: "game.ScorePointSystemJS"
+ ,updatesBefore: ["UTiny.Shared.UserCodeEnd"]
+ ,updatesAfter: ["UTiny.Shared.UserCodeStart"]
 });
 game.PipeSpacingSystemJS = ut.System.define({
   name: "game.PipeSpacingSystemJS"

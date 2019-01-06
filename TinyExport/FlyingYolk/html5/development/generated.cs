@@ -10,6 +10,7 @@ using UTiny.HitBox2D;
 using UTiny.Tweens;
 using UTiny.Audio;
 using UTiny.Profiler;
+using UTiny.UILayout;
 
 /*
  * !!! TEMP UNITL PROPER SCENE FORMAT !!!
@@ -298,9 +299,30 @@ namespace ut.Audio
 namespace ut.Profiler
 {
 }
+
+namespace ut.UILayout
+{
+}
 namespace game
 {
     public class AutoDestroySystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    [UpdateBefore(typeof(UTiny.Shared.UserCodeEnd))]
+    [UpdateAfter(typeof(UTiny.Shared.UserCodeStart))]
+    public class NumberTextRenderingSystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    [UpdateBefore(typeof(UTiny.Shared.UserCodeEnd))]
+    [UpdateBefore(typeof(game.NumberTextRenderingSystemJS))]
+    [UpdateAfter(typeof(UTiny.Shared.UserCodeStart))]
+    public class GameNumberTextValueSystemJS : IComponentSystem
     {
     }
 }
@@ -346,6 +368,14 @@ namespace game
 {
     [UpdateAfter(typeof(game.ScrollerSystemJS))]
     public class RepeatingBackgroundSystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    [UpdateBefore(typeof(UTiny.Shared.UserCodeEnd))]
+    [UpdateAfter(typeof(UTiny.Shared.UserCodeStart))]
+    public class ScorePointSystemJS : IComponentSystem
     {
     }
 }

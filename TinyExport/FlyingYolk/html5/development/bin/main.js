@@ -22,6 +22,7 @@ ut.importModule(ut.HitBox2D);
 ut.importModule(ut.Tweens);
 ut.importModule(ut.Audio);
 ut.importModule(ut.Profiler);
+ut.importModule(ut.UILayout);
 ut.main = function() {
     // Singleton world
     var world = new ut.World();
@@ -29,12 +30,15 @@ ut.main = function() {
     // Schedule all systems
     var scheduler = world.scheduler();
     game.AutoDestroySystemJS.update = new game.AutoDestroySystem()._MakeSystemFn();
+    game.GameNumberTextValueSystemJS.update = new game.GameNumberTextValueSystem()._MakeSystemFn();
+    game.NumberTextRenderingSystemJS.update = new game.NumberTextRenderingSystem()._MakeSystemFn();
     game.GameManagerSystemJS.update = new game.GameManagerSystem()._MakeSystemFn();
     game.GameOverSystemJS.update = new game.GameOverSystem()._MakeSystemFn();
     game.GravitySystemJS.update = new game.GravitySystem()._MakeSystemFn();
     game.PlayerInputSystemJS.update = new game.PlayerInputSystem()._MakeSystemFn();
     game.ScrollerSystemJS.update = new game.ScrollerSystem()._MakeSystemFn();
     game.RepeatingBackgroundSystemJS.update = new game.RepeatingBackgroundSystem()._MakeSystemFn();
+    game.ScorePointSystemJS.update = new game.ScorePointSystem()._MakeSystemFn();
     game.PipeSpacingSystemJS.update = new game.PipeSpacingSystem()._MakeSystemFn();
     game.SpawnerSystemJS.update = new game.SpawnerSystem()._MakeSystemFn();
     game.VelocitySystemJS.update = new game.VelocitySystem()._MakeSystemFn();
@@ -45,17 +49,24 @@ ut.main = function() {
     scheduler.schedule(ut.HitBox2D.HitBox2DSystem);
     scheduler.schedule(ut.Shared.InputFence);
     scheduler.schedule(ut.Shared.UserCodeStart);
+    scheduler.schedule(game.GameNumberTextValueSystemJS);
+    scheduler.schedule(game.NumberTextRenderingSystemJS);
     scheduler.schedule(game.GameManagerSystemJS);
     scheduler.schedule(game.GameOverSystemJS);
     scheduler.schedule(game.GravitySystemJS);
     scheduler.schedule(game.PlayerInputSystemJS);
     scheduler.schedule(game.ScrollerSystemJS);
     scheduler.schedule(game.RepeatingBackgroundSystemJS);
+    scheduler.schedule(game.ScorePointSystemJS);
     scheduler.schedule(game.PipeSpacingSystemJS);
     scheduler.schedule(game.SpawnerSystemJS);
     scheduler.schedule(game.VelocitySystemJS);
     scheduler.schedule(ut.Shared.UserCodeEnd);
     scheduler.schedule(ut.Tweens.TweenSystem);
+    scheduler.schedule(ut.UILayout.UICanvasSystem);
+    scheduler.schedule(ut.UILayout.UILayoutSystem);
+    scheduler.schedule(ut.UILayout.SetSprite2DSizeSystem);
+    scheduler.schedule(ut.UILayout.SetRectTransformSizeSystem);
     scheduler.schedule(ut.Shared.RenderingFence);
     scheduler.schedule(ut.Core2D.UpdateLocalTransformSystem);
     scheduler.schedule(ut.Core2D.UpdateWorldTransformSystem);
